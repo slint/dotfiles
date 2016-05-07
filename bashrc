@@ -115,3 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Add .local to PATH
+export PATH=$PATH:/home/alex/.local/bin
+

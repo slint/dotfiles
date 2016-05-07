@@ -4,5 +4,4 @@
     ~/.profile: profile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
-
-
+    ~/.vimrc: vimrc
