@@ -1,26 +1,17 @@
-# Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-ZSH_THEME="robbyrussell"
-
-# Set plugins
-plugins=(git ssh-agent tmux sublime)
-
-
-# User configuration
 
 # oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="amuse"
+plugins=(git ssh-agent tmux virtualenvwrapper colored-man-pages)
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-fi
+# Aliases
+alias gs='git status'
+alias gru='git remote update'
+alias gd='git diff'
+alias gl='git log --graph --oneline --decorate --date=relative --all'
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# PATH
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-export PATH=$PATH:$HOME/.local/bin
+alias v='workon'
+alias v.cd='cdvirtualenv'
+alias v.mk='mkvirtualenv'
+alias v.rm='rmvirtualenv'

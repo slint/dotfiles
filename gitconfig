@@ -4,6 +4,8 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+[pager]
+    log = cat
 [web]
     browser = firefox
 [color]
