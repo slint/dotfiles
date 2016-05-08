@@ -117,5 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 # Add .local to PATH
-export PATH=$PATH:/home/alex/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 

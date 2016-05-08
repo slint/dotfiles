@@ -2,6 +2,12 @@
 
 - link:
     ~/.profile: profile
+    ~/.inputrc: inputrc
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.vimrc: vimrc
+    ~/.gitignore_global: gitignore_global
+    ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
+    ~/.tmux.conf: tmux.conf
+
