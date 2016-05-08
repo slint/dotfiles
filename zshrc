@@ -5,7 +5,7 @@
 ZSH_THEME="robbyrussell"
 
 # Set plugins
-plugins=(git)
+plugins=(git ssh-agent tmux sublime)
 
 
 # User configuration
