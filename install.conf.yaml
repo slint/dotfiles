@@ -12,4 +12,5 @@
     ~/.zshenv: zshenv
     ~/.tmux.conf: tmux.conf
     ~/.fonts: fonts/
+    ~/.Xdefaults: Xdefaults
 

@@ -1,11 +1,11 @@
 " Misc
-" ----
+" ====
 " Don't try to be vi compatible
 set nocompatible
 
 
 " Visual/Layout
-" -------------
+" =============
 " Syntax, line numbers, cursor line
 syntax on
 set number
@@ -34,7 +34,7 @@ set visualbell
 
 
 " Content
-" -------
+" =======
 " Encoding
 set encoding=utf-8
 
@@ -56,7 +56,7 @@ set expandtab
 
 
 " Keybindings
-" -----------
+" ===========
 " Leader
 let mapleader = ","
 

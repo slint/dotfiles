@@ -1,6 +1,6 @@
 [user]
-	name = Alexander Ioannidis
-	email = a.ioannidis@cern.ch
+    name = Alexander Ioannidis
+    email = a.ioannidis@cern.ch
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
