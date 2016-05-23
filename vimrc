@@ -3,11 +3,15 @@
 " Don't try to be vi compatible
 set nocompatible
 
+" Put swap files in a specific folder
+set backupdir=~/.swp_files
+set directory=~/.swp_files
 
 " Visual/Layout
 " =============
-" Syntax, line numbers, cursor line
+" Syntax, line numbers, relative line numbers, cursor line
 syntax on
+set relativenumber
 set number
 set cursorline
 " Highlight brackets
@@ -31,6 +35,11 @@ set ruler
 
 " Blink cursor on error instead of beeping
 set visualbell
+
+" Use 24-bit colors
+if has('termguicolors')
+    set termguicolors
+endif
 
 
 " Content
@@ -64,6 +73,9 @@ let mapleader = ","
 nnoremap j gj
 nnoremap k gk
 
+" When going to a specific line, put it in the center of the view
+nnoremap G Gzz
+
 " Searching
 nnoremap / /\v
 vnoremap / /\v
@@ -75,3 +87,4 @@ map <leader><space> :let @/=''<cr> " clear search
 
 " Formatting
 map <leader>q gqip
+
