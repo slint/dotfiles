@@ -15,7 +15,6 @@ alias gru='git remote update'
 alias gd='git diff -w $*'
 alias gdc='git diff -w --cached'
 alias gl='git --no-pager log -20 --oneline --all --graph --decorate'
-<<<<<<< HEAD
 
 alias v='workon $*'
 alias v.deactivate='deactivate'
@@ -29,4 +28,3 @@ alias v.lssitepackages='lssitepackages $*'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
->>>>>>> 0022433... update tmux and zsh
