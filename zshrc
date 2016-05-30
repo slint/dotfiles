@@ -16,6 +16,9 @@ alias gd='git diff -w $*'
 alias gdc='git diff -w --cached'
 alias gl='git --no-pager log -20 --oneline --all --graph --decorate'
 
+alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
+alias gcern='git config user.email a.ioannidis@cern.ch'
+
 alias v='workon $*'
 alias v.deactivate='deactivate'
 alias v.mk='mkvirtualenv $*'
