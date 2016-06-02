@@ -1,0 +1,23 @@
+URxvt.termName: rxvt-256color
+
+URxvt.foreground: White
+URxvt.background: Gray10
+URxvt.scrollBar: False
+URxvt.saveLines: 4096
+
+URxvt.font: xft:Menlo for Powerline:size=10
+URxvt.imFont: xft:Menlo for Powerline:size=10
+URxvt.boldFont: xft:Menlo for Powerline:size=10
+URxvt.italicFont: xft:Menlo for Powerline:size=10
+URxvt.boldItalicFont: xft:Menlo for Powerline:size=10
+
+! URxvt.letterSpace: -1
+
+URxvt.borderColor: #000030
+URxvt.internalBorder: 1
+
+URxvt.iso14755: False
+
+URxvt.perl-ext-common: default,matcher
+URxvt.matcher.button: 1
+URxvt.urlLauncher: firefox
