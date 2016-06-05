@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# Author: Dolores Portalatin <hello@doloresportalatin.info>
+set -o errexit -o noclobber -o nounset
+
+HUE=(-level 0%,100%,0.6)
+EFFECT=(-filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500.5%)
+FONT="$(convert -list font | awk "{ a[NR] = \$2 } /family: $(fc-match sans -f "%{family}\n")/ { print a[NR-1]; exit }")"
+IMAGE="$(mktemp).png"
+
+OPTIONS="Options:
+    -h, --help   This help menu.
+    -p, --pixelate   Pixelate the background instead of blur, runs faster."
+
+# move pipefail down as for some reason "convert -list font" returns 1
+set -o pipefail
+trap 'rm -f "$IMAGE"' EXIT
+TEMP="$(getopt -o :hpglf: -l help,pixelate,greyscale,font: --name "$0" -- "$@")"
+eval set -- "$TEMP"
+
+while true ; do
+    case "$1" in
+        -h|--help)
+            printf "Usage: $(basename $0) [options]\n\n$OPTIONS\n\n" ; exit 1 ;;
+        -p|--pixelate) EFFECT=(-scale 10% -scale 1000%) ; shift ;;
+        --) shift ; break ;;
+        *) echo "error" ; exit 1 ;;
+    esac
+done
+
+# get path where the script is located to find the lock icon
+SCRIPTPATH=$(realpath "$0")
+SCRIPTPATH=${SCRIPTPATH%/*}
+
+# Display text
+TEXT="Say the magic words boi..."
+VALUE="60" #brightness value to compare to
+scrot -z "$IMAGE"
+COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
+    -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
+if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
+    BW="black"
+    ICON="$SCRIPTPATH/lockdark.png"
+else #black
+    BW="white"
+    ICON="$SCRIPTPATH/lock.png"
+fi
+
+convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 26 -fill "$BW" -gravity center \
+    -annotate +0+160 "$TEXT" "$ICON" -gravity center -composite "$IMAGE"
+
+# Run the locker
+i3lock -n -i "$IMAGE"
