@@ -6,7 +6,23 @@ plugins=(git ssh-agent httpie postgres sudo tmux virtualenvwrapper colored-man-p
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
+alias zshrc='$EDITOR ~/.zshrc'
+
 alias s.='subl .'
+
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
+alias mplay='playerctl play'
+alias mpause='playerctl pause'
+alias mstop='playerctl stop'
+
+# No quotes are needed when running eg. 'pip install .[all,tests]'
+alias pip='noglob pip'
+alias pia='noglob pip install .[all]'
+alias pie='noglob pip install -e $*'
+alias piea='noglob pip install -e .[all]'
+alias pipfind='pip freeze | grep $*'
 
 alias gs='git status'
 alias gca='git commit --amend'
