@@ -22,7 +22,7 @@ alias pip='noglob pip'
 alias pia='noglob pip install .[all]'
 alias pie='noglob pip install -e $*'
 alias piea='noglob pip install -e .[all]'
-alias pipfind='pip freeze | grep $*'
+alias pipfind='pip freeze | grep -i $*'
 
 alias gs='git status'
 alias gca='git commit --amend'
@@ -30,7 +30,8 @@ alias gr='git remote -v'
 alias gru='git remote update'
 alias gd='git diff -w $*'
 alias gdc='git diff -w --cached'
-alias gl='git --no-pager log -20 --oneline --all --graph --decorate'
+alias gl='noglob git log -25 --all --graph --pretty=format:"%C(auto,yellow)%h%C(auto)%d %C(auto,reset)%s [%C(auto,blue)%<(6,trunc)%an%x08%x08%C(auto,reset), %C(auto,cyan)%ar%C(auto,reset)]"'
+
 
 alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
 alias gcern='git config user.email a.ioannidis@cern.ch'
