@@ -9,6 +9,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshrc='$EDITOR ~/.zshrc'
 
 alias s.='subl .'
+alias http='noglob http'
 
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
