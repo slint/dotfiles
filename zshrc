@@ -2,11 +2,12 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="amuse"
-plugins=(git ssh-agent httpie postgres github sudo tmux virtualenvwrapper colored-man-pages)
+plugins=(git ssh-agent gpg-agent httpie postgres github sudo tmux virtualenvwrapper colored-man-pages)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias zshrc='$EDITOR ~/.zshrc'
+alias reload!='source ~/.zshrc'
 
 alias s.='subl .'
 alias http='noglob http'
@@ -52,3 +53,6 @@ alias v.lssitepackages='lssitepackages'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export NVM_DIR="/home/alex/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
