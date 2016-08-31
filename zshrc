@@ -2,7 +2,7 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="amuse"
-plugins=(git ssh-agent gpg-agent httpie postgres github sudo tmux virtualenvwrapper colored-man-pages)
+plugins=(git ssh-agent gpg-agent httpie postgres docker-compose github sudo tmux virtualenvwrapper colored-man-pages)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
@@ -43,7 +43,7 @@ alias gcern='git config user.email a.ioannidis@cern.ch'
 # Virtualenv
 alias v='workon'
 alias v.deactivate='deactivate'
-alias v.mk='mkvirtualenv'
+alias v.mk='mkvirtualenv -p python3.5'
 alias v.rm='rmvirtualenv'
 alias v.cd='cdvirtualenv'
 alias v.set='setprojectdir'

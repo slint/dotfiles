@@ -7,4 +7,3 @@ export PROJECT_HOME=$HOME/Source
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 export ULTRAHOOK_NAME=slint
 export JAVA_HOME=/usr/lib/jvm/default-java
-
