@@ -2,7 +2,8 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="amuse"
-plugins=(git ssh-agent gpg-agent httpie postgres docker-compose github sudo tmux virtualenvwrapper colored-man-pages)
+plugins=(git ssh-agent gpg-agent httpie postgres docker docker-compose github
+         sudo tmux virtualenvwrapper colored-man-pages thefuck)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
@@ -39,6 +40,19 @@ alias gpr='f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1; }; f'
 
 alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
 alias gcern='git config user.email a.ioannidis@cern.ch'
+
+# Docker
+alias dl="docker ps -l -q"
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias di="docker images"
+
+alias dcup='docker-compose up'
+alias dcb='docker-compose build'
+alias dcrm='docker-compose rm'
+alias dcps='docker-compose ps'
+alias dcstop='docker-compose stop'
+alias dcrestart='docker-compose restart'
 
 # Virtualenv
 alias v='workon'
