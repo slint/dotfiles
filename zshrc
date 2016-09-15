@@ -13,8 +13,8 @@ alias reload!='source ~/.zshrc'
 alias s.='subl .'
 alias http='noglob http'
 
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+alias fd='find . -type d -iname'
+alias ff='find . -type f -iname'
 
 # Music player
 alias mplay='playerctl play'
