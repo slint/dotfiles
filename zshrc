@@ -2,7 +2,7 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="amuse"
-plugins=(git ssh-agent gpg-agent httpie postgres docker docker-compose github
+plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose github
          sudo tmux virtualenvwrapper colored-man-pages thefuck)
 source $ZSH/oh-my-zsh.sh
 
@@ -35,8 +35,11 @@ alias gr='git remote -v'
 alias gru='git remote update'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'
+alias gbd='f() { git branch -D ${1} }; f'
+alias gbdr='f() { git branch -D ${1} && git push --delete origin $1; }; f'
 alias gl='noglob git log -25 --all --graph --pretty=format:"%C(auto,yellow)%h%C(auto)%d %C(auto,reset)%s [%C(auto,blue)%<(6,trunc)%an%x08%x08%C(auto,reset), %C(auto,cyan)%ar%C(auto,reset)]"'
 alias gpr='f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1; }; f'
+alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 
 alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
 alias gcern='git config user.email a.ioannidis@cern.ch'
