@@ -2,8 +2,9 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="amuse"
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose github
-         sudo tmux virtualenvwrapper colored-man-pages thefuck)
+         sudo tmux virtualenvwrapper colored-man-pages thefuck zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
@@ -73,3 +74,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="/home/alex/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+source ${ZSH_CUSTOM}/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
