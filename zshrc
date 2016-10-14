@@ -11,6 +11,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload!='source ~/.zshrc'
 
+alias tmux='tmux -2'
+
 alias s.='subl .'
 alias http='noglob http'
 
