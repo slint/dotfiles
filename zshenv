@@ -8,6 +8,9 @@ export PROJECT_HOME=$HOME/Source
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export ULTRAHOOK_NAME=slint
-export JAVA_HOME=/usr/lib/jvm/default-java
 export NPM_CONFIG_PREFIX=$HOME/.npm-global
+
+export JAVA_HOME=/usr/lib/jvm/default-java
+export ANDROID_HOME=/usr/local/lib/android-sdk
+export PATH=$PATH:$ANDROID_HOME/tools
 
