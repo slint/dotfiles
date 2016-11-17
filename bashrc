@@ -119,3 +119,5 @@ fi
 # Add .local to PATH
 export PATH=$PATH:$HOME/.local/bin
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -11,6 +11,7 @@
     ~/.oh-my-zsh-custom: oh-my-zsh-custom
     ~/.oh-my-zsh: oh-my-zsh
     ~/.zshrc: zshrc
+    ~/.zsh-aliases: zsh-aliases
     ~/.zshenv: zshenv
     ~/.tmux.conf: tmux.conf
     ~/.fonts: fonts/
@@ -19,5 +20,3 @@
     ~/.local/bin/lock: i3lock/lock
     ~/.local/bin/lock.png: i3lock/lock.png
     ~/.local/bin/lockdark.png: i3lock/lockdark.png
-
-
