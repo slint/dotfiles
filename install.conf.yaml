@@ -16,7 +16,9 @@
     ~/.tmux.conf: tmux.conf
     ~/.fonts: fonts/
     ~/.Xresources: Xresources
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
     ~/.local/bin/lock: i3lock/lock
     ~/.local/bin/lock.png: i3lock/lock.png
     ~/.local/bin/lockdark.png: i3lock/lockdark.png
+

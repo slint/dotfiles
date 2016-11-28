@@ -26,7 +26,9 @@ alias pipfind='pip freeze | grep -i '
 
 # Git
 alias gs='git status'
-alias gca='git commit --amend --date=now'
+alias gc='git commit -sS'
+alias gca='git commit --amend -sS'
+alias gcad='git commit --amend -sS --date=now'
 alias gr='git remote -v'
 alias gru='git remote update'
 alias gd='git diff -w'
@@ -63,3 +65,10 @@ alias v.set='setprojectdir'
 alias v.add2virtualenv='add2virtualenv'
 alias v.cdsitepackages='cdsitepackages'
 alias v.lssitepackages='lssitepackages'
+
+# FZF LastPass Keybinding
+fzf-lpass-widget() {
+    lpass show -c --password $(lpass ls  | fzf-tmux | awk '{print $(NF)}' | sed 's/\]//g')
+}
+zle -N fzf-lpass-widget
+bindkey '^P' fzf-lpass-widget

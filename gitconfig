@@ -1,6 +1,9 @@
 [user]
     name = Alexander Ioannidis
     email = a.ioannidis@cern.ch
+    signingkey = F4B3BE9C3F209D40
+[commit]
+    gpgsign = true
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
@@ -30,3 +33,5 @@
     st = status
 [push]
     default = simple
+[gpg]
+    program = gpg2
