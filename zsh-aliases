@@ -38,6 +38,7 @@ alias gbdr='f() { git branch -D $1 && git push --delete origin $1; }; f'
 alias gl='noglob git log -25 --all --graph --pretty=format:"%C(auto,yellow)%h%C(auto)%d %C(auto,reset)%s [%C(auto,blue)%<(6,trunc)%an%x08%x08%C(auto,reset), %C(auto,cyan)%ar%C(auto,reset)]"'
 alias gpr='f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
+alias gdog='mkdir -p ~/tmp && rsync -a --delete `pwd` ~/tmp/ && cowsay -f hellokitty "You have my permission to git now..."'
 
 alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
 alias gcern='git config user.email a.ioannidis@cern.ch'
@@ -72,3 +73,4 @@ fzf-lpass-widget() {
 }
 zle -N fzf-lpass-widget
 bindkey '^P' fzf-lpass-widget
+

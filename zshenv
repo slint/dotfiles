@@ -1,5 +1,5 @@
 # Basic bin paths
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/games
 export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts
 
 # Heroku binary
