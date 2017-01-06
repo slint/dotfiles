@@ -6,6 +6,7 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.vimrc: vimrc
+    ~/.config/sublime-text-3/Packages/User: sublime-text
     ~/.gitignore_global: gitignore_global
     ~/.gitconfig: gitconfig
     ~/.oh-my-zsh-custom: oh-my-zsh-custom
@@ -14,7 +15,6 @@
     ~/.zsh-aliases: zsh-aliases
     ~/.zshenv: zshenv
     ~/.tmux.conf: tmux.conf
-    ~/.fonts: fonts/
     ~/.Xresources: Xresources
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
