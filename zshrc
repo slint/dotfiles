@@ -17,3 +17,7 @@ source $ZSH_CUSTOM/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
 
 # Aliases
 [ -f $HOME/.zsh-aliases ] && source $HOME/.zsh-aliases
+
+# NVM
+export NVM_DIR="/home/alex/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
