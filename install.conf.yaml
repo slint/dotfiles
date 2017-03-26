@@ -7,6 +7,11 @@
     ~/.bash_logout: bash_logout
     ~/.vimrc: vimrc
     ~/.config/sublime-text-3/Packages/User: sublime-text
+
+    ~/.config/Code/User/settings.json: vscode/settings.json
+    ~/.config/Code/User/keybindings.json: vscode/keybindings.json
+    ~/.config/Code/User/snippets: vscode/snippets
+
     ~/.gitignore_global: gitignore_global
     ~/.gitconfig: gitconfig
     ~/.oh-my-zsh-custom: oh-my-zsh-custom
