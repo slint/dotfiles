@@ -10,6 +10,7 @@ alias tmux='tmux -2'
 alias s.='subl .'
 alias c.='code .'
 alias http='noglob http'
+alias vim='vim -S ~/.vimrc'
 
 alias fd='find . -type d -iname'
 alias ff='find . -type f -iname'
@@ -29,6 +30,7 @@ alias pipfind='pip freeze | grep -i '
 # Git
 alias gs='git status'
 alias gstash='git stash save --include-untracked'
+alias go='git checkout'
 alias gc='git commit -sS'
 alias gca='git commit --amend -sS'
 alias gcad='git commit --amend -sS --date=now'
@@ -87,4 +89,3 @@ fzf-lpass-widget() {
 }
 zle -N fzf-lpass-widget
 bindkey '^P' fzf-lpass-widget
-

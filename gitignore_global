@@ -27,8 +27,11 @@
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
+thumbs.db
 Thumbs.db
 
-# Editor generated files
+# Editor files
 .vscode
+
+# Custom stuff
+Alex-TODO.md

@@ -121,3 +121,6 @@ export PATH=$PATH:$HOME/.local/bin
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# added by travis gem
+[ -f /home/alex/.travis/travis.sh ] && source /home/alex/.travis/travis.sh

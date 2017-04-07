@@ -11,6 +11,7 @@ set directory=~/.swp_files
 " =============
 " Syntax, line numbers, relative line numbers, cursor line
 syntax on
+filetype plugin on
 set relativenumber
 set number
 set cursorline
@@ -35,12 +36,6 @@ set ruler
 
 " Blink cursor on error instead of beeping
 set visualbell
-
-" Use 24-bit colors
-if has('termguicolors')
-    set termguicolors
-endif
-
 
 " Content
 " =======
