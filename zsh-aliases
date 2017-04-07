@@ -2,6 +2,7 @@
 # Generic
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload!='source ~/.zshrc'
+alias zmv='noglob zmv -W'
 
 # Use 256-color mode in tmux
 alias tmux='tmux -2'
@@ -27,6 +28,7 @@ alias pipfind='pip freeze | grep -i '
 
 # Git
 alias gs='git status'
+alias gstash='git stash save --include-untracked'
 alias gc='git commit -sS'
 alias gca='git commit --amend -sS'
 alias gcad='git commit --amend -sS --date=now'

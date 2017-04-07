@@ -9,6 +9,8 @@ plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U zmv
+
 # ZSH Syntax Highlighting
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
 

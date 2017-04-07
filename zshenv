@@ -6,6 +6,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts
 export PATH=$PATH:/usr/local/heroku/bin
 
 export EDITOR=vim
+export VISUAL=code
 export WORKON_HOME=$HOME/Envs
 export PROJECT_HOME=$HOME/Source
 
