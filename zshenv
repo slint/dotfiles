@@ -14,6 +14,12 @@ export SSH_KEY_PATH=$HOME/.ssh/id_rsa.pub
 
 export ULTRAHOOK_NAME=slint
 
+export LPASS_CLIPBOARD_COMMAND="xclip -in -selection clipboard"
+
+# alias-tips exceptions
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="g _"
+export LPASS_AGENT_TIMEOUT=14400
+
 # Android
 export JAVA_HOME=/usr/lib/jvm/default-java
 export ANDROID_HOME=/usr/local/lib/android-sdk

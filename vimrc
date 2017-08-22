@@ -83,3 +83,5 @@ map <leader><space> :let @/=''<cr> " clear search
 " Formatting
 map <leader>q gqip
 
+set pastetoggle=<F2>
+

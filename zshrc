@@ -5,7 +5,7 @@ ZSH_THEME="amuse"
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
          github fasd sudo tmux virtualenvwrapper colored-man-pages
-         thefuck zsh-nvm zsh-syntax-highlighting, mix)
+         thefuck zsh-nvm zsh-syntax-highlighting alias-tips mix yarn)
 
 source $ZSH/oh-my-zsh.sh
 

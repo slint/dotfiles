@@ -3,6 +3,7 @@
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload!='source ~/.zshrc'
 alias zmv='noglob zmv -W'
+alias watch='watch '
 
 # Use 256-color mode in tmux
 alias tmux='tmux -2'
@@ -85,7 +86,7 @@ alias v.lssitepackages='lssitepackages'
 
 # FZF LastPass Keybinding
 fzf-lpass-widget() {
-    lpass show -c --password $(lpass ls  | fzf-tmux | awk '{print $(NF)}' | sed 's/\]//g')
+    lpass show --password $(lpass ls  | fzf-tmux | sed -rn 's/^.+id: ([0-9]+)]/\1/p') | clipcopy
 }
 zle -N fzf-lpass-widget
 bindkey '^P' fzf-lpass-widget

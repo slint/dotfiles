@@ -33,8 +33,6 @@
     changed = yellow bold
     untracked = red bold
 
-[alias]
-    st = status
 [status]
 	showUntrackedFiles = all
 [commit]
