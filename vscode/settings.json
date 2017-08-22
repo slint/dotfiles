@@ -2,28 +2,34 @@
     "[elixir]": {
         "editor.tabSize": 2
     },
-
-    "cSpell.enabledLanguageIds": [
-        "c",
-        "cpp",
-        "csharp",
-        "go",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "latex",
-        "markdown",
-        "php",
-        "plaintext",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yml"
-    ],
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[vue]": {
+        "editor.tabSize": 2
+    },
+    "[vue-html]": {
+        "editor.tabSize": 2
+    },
+    "[graphql]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    "[scss]": {
+        "editor.tabSize": 2
+    },
 
     "editor.cursorBlinking": "phase",
     "editor.fontFamily": "'Hack', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
-    "editor.fontSize": 12,
+    "editor.fontSize": 10,
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
@@ -34,7 +40,9 @@
     "editor.minimap.maxColumn": 90,
     "editor.minimap.renderCharacters": false,
     "editor.tabCompletion": true,
-    "editor.wordWrap": true,
+    "editor.wordWrap": "on",
+
+    "extensions.autoUpdate": false,
 
     "files.exclude": {
         "**/*.egg-info": true,
@@ -53,20 +61,24 @@
         "**/build": true,
         "**/coverage": true,
         "**/dist": true,
-        "**/node_modules": true
+        "**/node_modules": true,
+        "**/.vscode/tags": true,
+        "**/*.secret": true
     },
-    "files.trimTrailingWhitespace": true,
+    "search.exclude": {
+        "**/.vscode": true
+    },
+
+    "files.associations": {
+        "*.env": "yaml"
+    },
+    "files.defaultLanguage": "python",
     "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
 
-
-    "python.jediPath": "jedi",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
-    "python.unitTest.pyTestEnabled": true,
     "python.venvPath": "/home/alex/Envs",
-
-    "restructuredtext.builtDocumentationPath": "docs/_build/html",
-    "restructuredtext.makefilePath": "docs/.",
 
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.fontFamily": "Hack",
@@ -75,9 +87,13 @@
     "vsicons.dontShowNewVersionMessage": true,
     "vsicons.projectDetection.disableDetect": true,
 
-    "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}${appName}",
+    "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}",
     "window.zoomLevel": 0,
 
-    "workbench.colorTheme": "Material",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.colorTheme": "Material Night Eighties",
+    "workbench.iconTheme": "material-icon-theme",
+    "vim.leader": ",",
+    "vim.useCtrlKeys": false,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.hlsearch": true
 }

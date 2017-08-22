@@ -2,5 +2,20 @@
     { "key": "ctrl+shift+1", "command": "workbench.action.moveEditorToPreviousGroup" },
     { "key": "ctrl+shift+2", "command": "workbench.action.moveEditorToNextGroup" },
     { "key": "ctrl+tab", "command": "workbench.action.nextEditorInGroup" },
-    { "key": "ctrl+j", "command": "editor.action.joinLines" }
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.joinLines"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "python.goToPythonObject"
+    },
+    {
+        "key": "alt+w",
+        "command": "editor.emmet.action.wrapWithAbbreviation"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "toggleVim"
+    }
 ]
