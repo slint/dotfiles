@@ -10,6 +10,7 @@ alias tmux='tmux -2'
 
 alias s.='subl .'
 alias c.='code .'
+alias ci.='code-insiders .'
 alias http='noglob http'
 alias vim='vim -S ~/.vimrc'
 

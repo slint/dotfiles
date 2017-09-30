@@ -95,5 +95,23 @@
     "vim.leader": ",",
     "vim.useCtrlKeys": false,
     "vim.disableAnnoyingNeovimMessage": true,
-    "vim.hlsearch": true
+    "vim.hlsearch": true,
+    "editor.lineNumbers": "relative",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before":["<leader>", "<space>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        }
+    ]
 }

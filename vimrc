@@ -78,7 +78,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-map <leader><space> :let @/=''<cr> " clear search
+map <leader><space> :nohl<cr>
 
 " Formatting
 map <leader>q gqip
