@@ -61,7 +61,6 @@ bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
 # switch to workspace
-bindsym grave workspace number 1 
 bindsym $mod+grave workspace number 1 
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2 
