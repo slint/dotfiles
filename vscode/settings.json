@@ -88,8 +88,8 @@
     "vsicons.projectDetection.disableDetect": true,
 
     "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}",
+    "window.menuBarVisibility": "toggle",
     "window.zoomLevel": 0,
-
     "workbench.colorTheme": "Material Night Eighties",
     "workbench.iconTheme": "material-icon-theme",
     "vim.leader": ",",
