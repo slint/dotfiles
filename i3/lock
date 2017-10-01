@@ -32,7 +32,7 @@ SCRIPTPATH=$(realpath "$0")
 SCRIPTPATH=${SCRIPTPATH%/*}
 
 # Display text
-TEXT="Say the magic words boi..."
+TEXT="$(fortune)"
 VALUE="60" #brightness value to compare to
 scrot -z "$IMAGE"
 COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
@@ -45,8 +45,8 @@ else #black
     ICON="$SCRIPTPATH/lock.png"
 fi
 
-convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 26 -fill "$BW" -gravity center \
-    -annotate +0+160 "$TEXT" "$ICON" -gravity center -composite "$IMAGE"
+convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 24 -fill "$BW" -gravity center \
+    -annotate +200+160 "$TEXT" "$ICON" -gravity center -geometry +200+0 -composite "$IMAGE"
 
 # Run the locker
 i3lock -n -i "$IMAGE"

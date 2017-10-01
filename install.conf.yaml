@@ -24,7 +24,10 @@
     ~/.Xresources: Xresources
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
-    ~/.local/bin/lock: i3lock/lock
-    ~/.local/bin/lock.png: i3lock/lock.png
-    ~/.local/bin/lockdark.png: i3lock/lockdark.png
+    ~/.screenlayout/work.sh: screenlayout/work.sh
+    ~/.config/i3/config: i3/config
+    ~/.i3blocks.conf: i3/i3blocks.conf
+    ~/.local/bin/lock: i3/lock
+    ~/.local/bin/lock.png: i3/lock.png
+    ~/.local/bin/lockdark.png: i3/lockdark.png
 
