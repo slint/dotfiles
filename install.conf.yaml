@@ -2,6 +2,7 @@
 
 - link:
     ~/.profile: profile
+    ~/.xprofile: xprofile
     ~/.inputrc: inputrc
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
@@ -19,6 +20,7 @@
     ~/.zsh-aliases: zsh-aliases
     ~/.zshenv: zshenv
     ~/.tmux.conf: tmux.conf
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.Xresources: Xresources
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
