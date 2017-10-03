@@ -7,6 +7,9 @@ exec_always --no-startup-id ~/.screenlayout/active.sh
 exec --no-startup-id compton -b -c -f
 exec --no-startup-id alacritty -t Alacritty -e /home/alex/.scripts/start-tmux.sh
 
+# English and Greek Keyboard Layouts
+exec --no-startup-id "setxkbmap -layout us,gr -option grp:alt_shift_toggle"
+
 font pango:Hack-Regular, FontAwesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -95,6 +98,7 @@ workspace 6 output HDMI2
 workspace 7 output HDMI2
 workspace 8 output HDMI2
 workspace 9 output HDMI2
+
 for_window [class="Alacritty"] border pixel 0
 assign [class="Alacritty"] 1 
 assign [class="Google-chrome"] 2 
@@ -102,6 +106,9 @@ assign [class="Code"] 3 
 assign [title="Gitter"] 4 
 assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
+
+for_window [title="^Google Hangouts*"] move window to scratchpad, resize set 300 550, move absolute position center, move scratchpad, scratchpad
+bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
 # Volume keys
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute

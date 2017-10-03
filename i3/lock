@@ -32,7 +32,7 @@ SCRIPTPATH=$(realpath "$0")
 SCRIPTPATH=${SCRIPTPATH%/*}
 
 # Display text
-TEXT="$(fortune)"
+TEXT="$(fortune | sed 's/\t/  /g')"
 VALUE="60" #brightness value to compare to
 scrot -z "$IMAGE"
 COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
