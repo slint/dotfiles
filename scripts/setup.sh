@@ -8,11 +8,12 @@ sudo apt -y install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
   build-essential software-properties-common git curl wget ncdu lynx htop \
   wmctrl cmake libfreetype6-dev libfontconfig1-dev xclip fonts-font-awesome \
   ttf-mscorefonts-installer gnupg-agent gnupg2 pinentry-curses scrot \
-  imagemagick rofi
-
+  imagemagick rofi ranger thunderbird fonts-dejavu
 
 # Python
-sudo apt -y install python-pip python3-pip
+sudo apt -y install python-pip python3-pip python-dev python3-dev libffi-dev \
+  libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev libcairo2-dev \
+  libfreetype6-dev
 sudo pip install -U pip
 sudo pip3 install -U pip
 pip install --user virtualenv virtualenvwrapper
@@ -31,6 +32,13 @@ if ! [ -x "$(command -v zsh)" ]; then
   echo 'INFO: installing `zsh`...'
   sudo apt -y install zsh
   sudo chsh -s /bin/zsh $USER
+fi
+
+# fzf
+if ! [ -x "$(command -v fzf)" ]; then
+  echo 'INFO: installing `fzf`...'
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
 fi
 
 # Docker
@@ -71,3 +79,9 @@ if ! [ -x "$(command -v jq)" ]; then
   wget -q -O ~/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
   chmod +x ~/.local/bin/jq
 fi
+
+# Other applications
+(. ./apps/google-chrome.sh)
+(. ./apps/spotify.sh)
+(. ./apps/vscode.sh)
+(. ./apps/gitter.sh)
