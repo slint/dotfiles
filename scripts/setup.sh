@@ -8,7 +8,7 @@ sudo apt -y install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
   build-essential software-properties-common git curl wget ncdu lynx htop \
   wmctrl cmake libfreetype6-dev libfontconfig1-dev xclip fonts-font-awesome \
   ttf-mscorefonts-installer gnupg-agent gnupg2 pinentry-curses scrot \
-  imagemagick rofi ranger thunderbird fonts-dejavu
+  imagemagick rofi ranger thunderbird evince fonts-dejavu ruby ruby-dev
 
 # Python
 sudo apt -y install python-pip python3-pip python-dev python3-dev libffi-dev \
@@ -70,7 +70,7 @@ fi
 if ! [ -x "$(command -v playerctl)" ]; then
   echo 'INFO: installing `playerctl`...'
   wget -q -O /tmp/playerctl.deb https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
-  sudo dpkg -i playerctl.deb
+  sudo dpkg -i /tmp/playerctl.deb
 fi
 
 # JQ
@@ -85,3 +85,4 @@ fi
 (. ./apps/spotify.sh)
 (. ./apps/vscode.sh)
 (. ./apps/gitter.sh)
+(. ./apps/keybase.sh)

@@ -26,3 +26,8 @@ export NVM_DIR="/home/alex/.nvm"
 
 # added by travis gem
 [ -f /home/alex/.travis/travis.sh ] && source /home/alex/.travis/travis.sh
+
+# Add ruby to PATH
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
