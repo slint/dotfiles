@@ -7,13 +7,17 @@ sudo apt -y install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
   xserver-xorg nautilus gnome-terminal volumeicon-alsa intel-microcode \
   build-essential software-properties-common git curl wget ncdu lynx htop \
   wmctrl cmake libfreetype6-dev libfontconfig1-dev xclip fonts-font-awesome \
-  ttf-mscorefonts-installer gnupg-agent gnupg2 pinentry-curses scrot \
-  imagemagick rofi ranger thunderbird evince fonts-dejavu ruby ruby-dev
+  ttf-mscorefonts-installer gnupg-agent gnupg2 pinentry-curses scrot tree \
+  imagemagick rofi ranger thunderbird evince fonts-dejavu ruby ruby-dev \
+  python-setuptools udisks python-gobject python-yaml libgio2.0 \
+  gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7
 
 # Python
-sudo apt -y install python-pip python3-pip python-dev python3-dev libffi-dev \
-  libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev libcairo2-dev \
-  libfreetype6-dev
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt -y install python-pip python3-pip python-dev python3-dev python3.6 \
+  python3.6-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev \
+  zlib1g-dev libcairo2-dev libfreetype6-dev
 sudo pip install -U pip
 sudo pip3 install -U pip
 pip install --user virtualenv virtualenvwrapper
@@ -53,6 +57,9 @@ fi
 
 # Alacritty
 (. ./apps/alacritty.sh)
+
+# xcape
+(. ./apps/xcape.sh)
 
 # Dotfiles from: slint/dotfiles
 if [ ! -d "$HOME/.dotfiles" ]; then

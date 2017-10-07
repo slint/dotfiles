@@ -7,9 +7,6 @@ exec_always --no-startup-id ~/.screenlayout/active.sh
 exec --no-startup-id compton -b -c -f
 exec --no-startup-id alacritty -t Alacritty -e /home/alex/.scripts/start-tmux.sh
 
-# English and Greek Keyboard Layouts
-exec --no-startup-id "setxkbmap -layout us,gr -option grp:alt_shift_toggle"
-
 font pango:Hack-Regular, FontAwesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -108,6 +105,8 @@ assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
 
 for_window [title="^Google Hangouts*"] move window to scratchpad, resize set 300 550, move absolute position center, move scratchpad, scratchpad
+for_window [title="^Google Hangouts*"] border pixel 0
+
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
 # Volume keys
@@ -148,7 +147,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # System mode
-bindsym $mod+l exec --no-startup-id ~/.local/bin/lock
+bindsym $mod+l exec --no-startup-id ~/.local/bin/lock -p
 set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.local/bin/lock, mode "default"
