@@ -161,6 +161,19 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 
+# Moving flaoting panes around
+mode "moveit" {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym Mod1+m focus floating; mode "moveit"
+
 # Some colors
 client.focused #6c71c4 #6c71c4 #fdf6e3 #6c71c4
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4

@@ -5,6 +5,9 @@ alias reload!='source ~/.zshrc'
 alias zmv='noglob zmv -W'
 alias watch='watch '
 
+# Edit dotfiles
+alias dot='code ~/.dotfiles'
+
 # Use 256-color mode in tmux
 alias tmux='tmux -2'
 

@@ -3,6 +3,7 @@
 - link:
     ~/.profile: profile
     ~/.xprofile: xprofile
+    ~/.xinitrc: xinitrc
     ~/.inputrc: inputrc
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
