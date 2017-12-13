@@ -96,7 +96,6 @@
     "vim.useCtrlKeys": false,
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.hlsearch": true,
-    "editor.lineNumbers": "relative",
     "vim.insertModeKeyBindings": [
         {
             "before": ["j","j"],
@@ -113,5 +112,19 @@
                 }
             ]
         }
-    ]
+    ],
+    "docker.showExplorer": false,
+    "python.disablePromptForFeatures": [
+        "flake8"
+    ],
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
 }

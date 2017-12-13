@@ -3,9 +3,14 @@
 set $mod Mod4
 
 # Update screen layout
+exec --no-startup-id redshift-gtk
 exec_always --no-startup-id ~/.screenlayout/active.sh
 exec --no-startup-id compton -b -c -f
 exec --no-startup-id alacritty -t Alacritty -e /home/alex/.scripts/start-tmux.sh
+exec google-chrome
+exec spotify
+exec gitter
+exec thunderbird
 
 font pango:Hack-Regular, FontAwesome 8
 
@@ -96,7 +101,11 @@ workspace 7 output HDMI2
 workspace 8 output HDMI2
 workspace 9 output HDMI2
 
+# Disable borders for some applications
 for_window [class="Alacritty"] border pixel 0
+for_window [class="Gitter"] border pixel 0
+for_window [class="Spotify"] border pixel 0
+
 assign [class="Alacritty"] 1 
 assign [class="Google-chrome"] 2 
 assign [class="Code"] 3 
@@ -104,9 +113,9 @@ assign [title="Gitter"] 4 
 assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
 
+# Google hangouts
 for_window [title="^Google Hangouts*"] move window to scratchpad, resize set 300 550, move absolute position center, move scratchpad, scratchpad
 for_window [title="^Google Hangouts*"] border pixel 0
-
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
 # Volume keys
@@ -186,6 +195,6 @@ bar {
   status_command i3blocks
 
   strip_workspace_numbers yes
-  tray_output primary
+  tray_output HDMI2
   tray_padding 0
 }

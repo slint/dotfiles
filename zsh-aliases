@@ -1,9 +1,10 @@
 
 # Generic
 alias zshrc='$EDITOR ~/.zshrc'
-alias reload!='source ~/.zshrc'
+alias r!='source ~/.zshrc'
 alias zmv='noglob zmv -W'
 alias watch='watch '
+# alias assh='assh wrapper ssh'
 
 # Edit dotfiles
 alias dot='code ~/.dotfiles'
@@ -36,16 +37,16 @@ alias pipfind='pip freeze | grep -i '
 alias gs='git status'
 alias gstash='git stash save --include-untracked'
 alias go='git checkout'
-alias gc='git commit -sS'
-alias gca='git commit --amend -sS'
-alias gcad='git commit --amend -sS --date=now'
+alias gc='git commit -S'
+alias gca='git commit --amend -S'
+alias gcad='git commit --amend -S --date=now'
 alias gr='git remote -v'
 alias gru='git remote update'
 alias gpum='git pull upstream master'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'
 alias gbd='f() { git branch -D $1 }; f'
-alias gbdr='f() { git branch -D $1 && git push --delete origin $1; }; f'
+alias gbdr='f() { git branch -D $1 && git push --delete origin :$1; }; f'
 
 GIT_LOG_FORMAT="\
 %C(auto,yellow)%h%C(auto)%d \
@@ -54,6 +55,7 @@ GIT_LOG_FORMAT="\
 %C(auto,cyan)%ar%C(auto,reset)]"
 alias gl='noglob git log -25 --all --graph --pretty=format:$GIT_LOG_FORMAT'
 
+alias gdel='f() { git branch -D $1 && git push ${2:-origin} :$1; }; f'
 alias gpr='f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
@@ -94,3 +96,4 @@ fzf-lpass-widget() {
 }
 zle -N fzf-lpass-widget
 bindkey '^P' fzf-lpass-widget
+

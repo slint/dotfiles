@@ -4,7 +4,7 @@ set -o errexit -o noclobber -o nounset
 
 HUE=(-level 0%,100%,0.6)
 EFFECT=(-filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500.5%)
-FONT="$(convert -list font | awk "{ a[NR] = \$2 } /family: $(fc-match sans -f "%{family}\n")/ { print a[NR-1]; exit }")"
+FONT="$(convert -list font | awk "{ a[NR] = \$2 } /family: $(fc-match hack -f "%{family}\n")/ { print a[NR-1]; exit }")"
 IMAGE="$(mktemp).png"
 
 OPTIONS="Options:
@@ -32,7 +32,7 @@ SCRIPTPATH=$(realpath "$0")
 SCRIPTPATH=${SCRIPTPATH%/*}
 
 # Display text
-TEXT="$(fortune | sed 's/\t/  /g')"
+TEXT="$(fortune bofh-excuses debian science linux computers paradoxum linuxcookie goedel disclaimer debian-hints work | sed 's/\t/  /g')"
 VALUE="60" #brightness value to compare to
 scrot -z "$IMAGE"
 COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
@@ -46,7 +46,7 @@ else #black
 fi
 
 convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 24 -fill "$BW" -gravity center \
-    -annotate +200+160 "$TEXT" "$ICON" -gravity center -geometry +200+0 -composite "$IMAGE"
+    -annotate +400+0 "$TEXT" "$IMAGE"
 
 # Run the locker
 i3lock -n -i "$IMAGE"

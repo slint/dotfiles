@@ -41,6 +41,8 @@ render_timer: false
 
 custom_cursor_colors: false
 
+background_opacity: 0.3
+
 # Colors (Tomorrow Night Bright)
 colors:
   primary:
