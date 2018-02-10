@@ -46,7 +46,7 @@ alias gpum='git pull upstream master'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'
 alias gbd='f() { git branch -D $1 }; f'
-alias gbdr='f() { git branch -D $1 && git push --delete origin :$1; }; f'
+alias gbdr='f() { git branch -D $1 && git push origin :$1; }; f'
 
 GIT_LOG_FORMAT="\
 %C(auto,yellow)%h%C(auto)%d \
