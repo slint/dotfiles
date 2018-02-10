@@ -2,6 +2,10 @@
 
 set $mod Mod4
 
+# Set displays
+set $primary_display DP2
+set $secondary_display VGA1
+
 # Update screen layout
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id ~/.screenlayout/active.sh
@@ -91,19 +95,19 @@ bindsym $mod+Shift+9 move container to workspace number 9 
 bindsym $mod+Shift+0 move container to workspace number 10
 
 # Customize applications for workspaces
-workspace 1 output VGA1
-workspace 2 output HDMI2
-workspace 3 output HDMI2
-workspace 4 output HDMI2
-workspace 5 output HDMI2
-workspace 6 output HDMI2
-workspace 7 output HDMI2
-workspace 8 output HDMI2
-workspace 9 output HDMI2
+workspace 1 output $secondary_display
+workspace 2 output $primary_display
+workspace 3 output $primary_display
+workspace 4 output $primary_display
+workspace 5 output $primary_display
+workspace 6 output $primary_display
+workspace 7 output $primary_display
+workspace 8 output $primary_display
+workspace 9 output $primary_display
 
 # Disable borders for some applications
 for_window [class="Alacritty"] border pixel 0
-for_window [class="Gitter"] border pixel 0
+for_window [title="Gitter"] border pixel 0
 for_window [class="Spotify"] border pixel 0
 
 assign [class="Alacritty"] 1 
@@ -114,7 +118,7 @@ assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
 
 # Google hangouts
-for_window [title="^Google Hangouts*"] move window to scratchpad, resize set 300 550, move absolute position center, move scratchpad, scratchpad
+for_window [title="^Google Hangouts*"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
 for_window [title="^Google Hangouts*"] border pixel 0
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
@@ -191,10 +195,10 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 # Status bar
 bar {
-  output HDMI2
+  output $primary_display
   status_command i3blocks
 
   strip_workspace_numbers yes
-  tray_output HDMI2
+  tray_output $primary_display
   tray_padding 0
 }
