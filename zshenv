@@ -18,7 +18,7 @@ export LPASS_CLIPBOARD_COMMAND="xclip -in -selection clipboard"
 
 # alias-tips exceptions
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="g _"
-export LPASS_AGENT_TIMEOUT=14400
+export LPASS_AGENT_TIMEOUT=36000
 
 # Android
 export JAVA_HOME=/usr/lib/jvm/default-java
