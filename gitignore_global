@@ -32,6 +32,9 @@ Thumbs.db
 
 # Editor files
 .vscode
+# ElixirLS
+.elixir_ls
 
 # Custom stuff
 Alex-TODO.md
+

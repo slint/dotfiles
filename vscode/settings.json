@@ -63,6 +63,7 @@
         "**/dist": true,
         "**/node_modules": true,
         "**/.vscode/tags": true,
+        "**/.elixir_ls": true,
         "**/*.secret": true
     },
     "search.exclude": {
@@ -127,4 +128,10 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
+    "gitlens.codeLens.scopes": [
+        "document",
+        "containers"
+    ],
+    "gitlens.hovers.currentLine.over": "line",
+    "workbench.startupEditor": "newUntitledFile",
 }

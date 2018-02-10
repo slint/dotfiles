@@ -41,3 +41,4 @@ if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
   compdef _pipenv pipenv
 fi
 
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
