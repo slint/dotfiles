@@ -118,8 +118,8 @@ assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
 
 # Google hangouts
-for_window [title="^Google Hangouts*"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
-for_window [title="^Google Hangouts*"] border pixel 0
+for_window [title="^Google Hangouts*" window_role="app"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
+for_window [title="^Google Hangouts*" window_role="app"] border pixel 0
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
 # Volume keys

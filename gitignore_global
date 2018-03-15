@@ -30,9 +30,14 @@
 thumbs.db
 Thumbs.db
 
+# Python
+.pytest_cache
+
+# JS
+node_modules/
+
 # Editor files
 .vscode
-# ElixirLS
 .elixir_ls
 
 # Custom stuff

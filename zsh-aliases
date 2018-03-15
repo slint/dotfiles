@@ -7,7 +7,7 @@ alias watch='watch '
 # alias assh='assh wrapper ssh'
 
 # Edit dotfiles
-alias dot='code ~/.dotfiles'
+alias dot.='code ~/.dotfiles'
 
 # Use 256-color mode in tmux
 alias tmux='tmux -2'
@@ -28,6 +28,7 @@ alias mstop='playerctl stop'
 
 # pip
 alias pip='noglob pip'
+alias pipi='pip install'
 alias pia='noglob pip install .[all]'
 alias pie='noglob pip install -e'
 alias piea='noglob pip install -e .[all]'

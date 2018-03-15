@@ -91,7 +91,6 @@
     "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}",
     "window.menuBarVisibility": "toggle",
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Material Night Eighties",
     "workbench.iconTheme": "material-icon-theme",
     "vim.leader": ",",
     "vim.useCtrlKeys": false,
@@ -134,4 +133,6 @@
     ],
     "gitlens.hovers.currentLine.over": "line",
     "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Material Night Eighties",
+    "gitlens.keymap": "alternate",
 }
