@@ -1,0 +1,72 @@
+{
+    "if/endif": {
+        "prefix": "if",
+        "body": [
+            "{% if $1 %}",
+            "  $2",
+            "{% endif %}"
+        ],
+        "description": "Jinja2 if statement."
+    },
+    "if/else/endif": {
+        "prefix": "ifelse",
+        "body": [
+            "{% if $1 %}",
+            "  $2",
+            "{% else %}",
+            "  $3",
+            "{% endif %}"
+        ],
+        "description": "Jinja2 if/else statement."
+    },
+    "if/elif/else/endif": {
+        "prefix": "ifelif",
+        "body": [
+            "{% if $1 %}",
+            "  $2",
+            "{% elif $3 %}",
+            "  $4",
+            "{% else %}",
+            "  $5",
+            "{% endif %}"
+        ],
+        "description": "Jinja2 if/elif/else statement."
+    },
+    "for": {
+        "prefix": "for",
+        "body": [
+            "{% for $1 in $2 %}",
+            "  $3",
+            "{% endfor %}"
+        ],
+        "description": "Jinja2 if statement."
+    },
+    "set": {
+        "prefix": "set",
+        "body": [ "{% set $1 = $2 %}" ],
+        "description": "Jinja2 set statement."
+    },
+    "block": {
+        "prefix": "block",
+        "body": [
+            "{% block $1 %}",
+            "  $2",
+            "{% endblock %}"
+        ],
+        "description": "Jinja2 block statement."
+    },
+    "include": {
+        "prefix": "include",
+        "body": [
+            "{% include $1 %}"
+        ],
+        "description": "Jinja2 include statement."
+    },
+    "extends": {
+        "prefix": "extends",
+        "body": [
+            "{% extends $1 %}"
+        ],
+        "description": "Jinja2 extends statement."
+    }
+}

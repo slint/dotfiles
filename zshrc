@@ -5,7 +5,7 @@ ZSH_THEME="amuse"
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
          github fasd sudo tmux virtualenvwrapper colored-man-pages
-         thefuck zsh-nvm zsh-syntax-highlighting, mix)
+         thefuck zsh-nvm zsh-syntax-highlighting mix kubectl alias-tips)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,3 +26,6 @@ export NVM_DIR="/home/alex/.nvm"
 
 # added by travis gem
 [ -f /home/alex/.travis/travis.sh ] && source /home/alex/.travis/travis.sh
+
+# Rust
+source $HOME/.cargo/env

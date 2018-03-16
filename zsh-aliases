@@ -3,6 +3,7 @@
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload!='source ~/.zshrc'
 alias zmv='noglob zmv -W'
+alias watch='watch '
 
 # Use 256-color mode in tmux
 alias tmux='tmux -2'
@@ -31,9 +32,11 @@ alias pipfind='pip freeze | grep -i '
 alias gs='git status'
 alias gstash='git stash save --include-untracked'
 alias go='git checkout'
-alias gc='git commit -sS'
-alias gca='git commit --amend -sS'
-alias gcad='git commit --amend -sS --date=now'
+alias gc='git commit -S'
+alias gca='git commit --amend -S'
+alias gcad='git commit --amend -S --date=now'
+
+unalias grv
 alias gr='git remote -v'
 alias gru='git remote update'
 alias gpum='git pull upstream master'
@@ -49,7 +52,7 @@ GIT_LOG_FORMAT="\
 %C(auto,cyan)%ar%C(auto,reset)]"
 alias gl='noglob git log -25 --all --graph --pretty=format:$GIT_LOG_FORMAT'
 
-alias gpr='f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1; }; f'
+alias gpr='f() { git fetch upstream pull/$1/head:pr/$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
     mkdir -p ~/tmp && \

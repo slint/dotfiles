@@ -1,0 +1,11 @@
+{
+    "if/endif": {
+        "prefix": "if",
+        "body": [
+            "{% if $1 %}",
+            "  $2",
+            "{% endif %}"
+        ],
+        "description": "Jinja2 if statement."
+    }
+}
