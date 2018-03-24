@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker-compose --file ~/.docker-services/es6/docker-compose.yml up -d elasticsearch

@@ -12,5 +12,12 @@
             "import wdb; wdb.set_trace()"
         ],
         "description": "wdb trace"
+    },
+    "Debug Printing": {
+        "prefix": "dbg",
+        "body": [
+            "from show.pretty import *; show(${1:variable})"
+        ],
+        "description": "wdb trace"
     }
 }

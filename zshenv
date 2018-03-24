@@ -2,6 +2,9 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/games
 export PATH=$PATH:$HOME/.local/bin:$HOME/.scripts
 
+# Docker services
+export PATH=$PATH:$HOME/.docker-services/bin
+
 # Heroku binary
 export PATH=$PATH:/usr/local/heroku/bin
 

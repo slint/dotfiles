@@ -1,0 +1,14 @@
+{
+    "files.defaultLanguage": "shellscript",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "oh-my-zsh/": true,
+        "oh-my-zsh-custom/": true,
+        "dotbot/": true
+
+    }
+}
