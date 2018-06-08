@@ -32,7 +32,7 @@ SCRIPTPATH=$(realpath "$0")
 SCRIPTPATH=${SCRIPTPATH%/*}
 
 # Display text
-TEXT="$(fortune bofh-excuses debian science linux computers paradoxum linuxcookie goedel disclaimer debian-hints work | sed 's/\t/  /g')"
+TEXT="$(fortune bofh-excuses debian science linux computers paradoxum linuxcookie goedel disclaimer debian-hints work | sed 's/\t/  /g') \n\n\n\n...and that's why you can't croissant me! :D"
 VALUE="60" #brightness value to compare to
 scrot -z "$IMAGE"
 COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \

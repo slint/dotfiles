@@ -123,9 +123,9 @@ for_window [title="^Google Hangouts*" window_role="app"] border pixel 0
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
 # Volume keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -q set PCM 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set PCM 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set PCM toggle
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
