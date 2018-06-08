@@ -124,6 +124,8 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
@@ -133,6 +135,7 @@
     ],
     "gitlens.hovers.currentLine.over": "line",
     "workbench.startupEditor": "newUntitledFile",
+    "gitlens.keymap": "chorded",
     "workbench.colorTheme": "Material Night Eighties",
-    "gitlens.keymap": "alternate",
+    "gitlens.historyExplorer.enabled": true,
 }
