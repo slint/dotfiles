@@ -32,6 +32,7 @@ Thumbs.db
 
 # Python
 .pytest_cache
+.ipynb_checkpoints
 
 # JS
 node_modules/
