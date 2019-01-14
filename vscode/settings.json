@@ -45,26 +45,25 @@
     "extensions.autoUpdate": false,
 
     "files.exclude": {
+        "**/__pycache__": true,
+        "**/_build": true,
+        "**/.cache": true,
+        "**/.DS_Store": true,
+        "**/.elixir_ls": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/.vscode/tags": true,
         "**/*.egg-info": true,
         "**/*.eggs": true,
         "**/*.pid": true,
         "**/*.pyc": true,
-        "**/.DS_Store": true,
-        "**/.cache": true,
-        "**/.git": true,
-        "**/.hg": true,
-        "**/.svn": true,
-        "**/CVS": true,
-        "**/__pycache__": true,
-        "**/_build": true,
+        "**/*.secret": true,
         "**/bower_components": true,
         "**/build": true,
         "**/coverage": true,
-        "**/dist": true,
-        "**/node_modules": true,
-        "**/.vscode/tags": true,
-        "**/.elixir_ls": true,
-        "**/*.secret": true
+        "**/CVS": true,
+        "**/node_modules": true
     },
     "search.exclude": {
         "**/.vscode": true
@@ -73,7 +72,6 @@
     "files.associations": {
         "*.env": "yaml"
     },
-    "files.defaultLanguage": "python",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
 
@@ -92,31 +90,7 @@
     "window.menuBarVisibility": "toggle",
     "window.zoomLevel": 0,
     "workbench.iconTheme": "material-icon-theme",
-    "vim.leader": ",",
-    "vim.useCtrlKeys": false,
-    "vim.disableAnnoyingNeovimMessage": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j","j"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before":["<leader>", "<space>"],
-            "after":[],
-            "commands": [
-                {
-                    "command": ":nohl"
-                }
-            ]
-        }
-    ],
     "docker.showExplorer": false,
-    "python.disablePromptForFeatures": [
-        "flake8"
-    ],
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -138,4 +112,20 @@
     "gitlens.keymap": "chorded",
     "workbench.colorTheme": "Material Night Eighties",
     "gitlens.historyExplorer.enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "79",
+        "--skip-string-normalization"
+    ],
+    "elastic.showResultAsDocument": false,
+    "breadcrumbs.enabled": true,
+    "files.defaultLanguage": "python",
+    "fileutils.delete.useTrash": true,
+    "fileutils.typeahead.enabled": false,
+    "cSpell.allowCompoundWords": true,
+    "cSpell.diagnosticLevel": "Hint",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "window.titleBarStyle": "native"
 }
