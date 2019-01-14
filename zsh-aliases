@@ -27,12 +27,13 @@ alias mpause='playerctl pause'
 alias mstop='playerctl stop'
 
 # pip
-alias pip='noglob pip'
-alias pipi='pip install'
+alias p='noglob pip'
+alias pi='pip install'
+alias pu='pip uninstall'
 alias pia='noglob pip install .[all]'
 alias pie='noglob pip install -e'
 alias piea='noglob pip install -e .[all]'
-alias pipfind='pip freeze | grep -i '
+alias pf='noglob pip list | grep -i '
 
 # Git
 alias gs='git status'
