@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-# Author: Dolores Portalatin <hello@doloresportalatin.info>
 set -o errexit -o noclobber -o nounset
 
 HUE=(-level 0%,100%,0.6)
-EFFECT=(-filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500.5%)
+EFFECT=(-scale 10% -scale 1000%)
 FONT="$(convert -list font | awk "{ a[NR] = \$2 } /family: $(fc-match hack -f "%{family}\n")/ { print a[NR-1]; exit }")"
 IMAGE="$(mktemp).png"
 
 OPTIONS="Options:
-    -h, --help   This help menu.
-    -p, --pixelate   Pixelate the background instead of blur, runs faster."
+    -h, --help   This help menu."
 
 # move pipefail down as for some reason "convert -list font" returns 1
 set -o pipefail
@@ -21,7 +19,6 @@ while true ; do
     case "$1" in
         -h|--help)
             printf "Usage: $(basename $0) [options]\n\n$OPTIONS\n\n" ; exit 1 ;;
-        -p|--pixelate) EFFECT=(-scale 10% -scale 1000%) ; shift ;;
         --) shift ; break ;;
         *) echo "error" ; exit 1 ;;
     esac
@@ -32,21 +29,42 @@ SCRIPTPATH=$(realpath "$0")
 SCRIPTPATH=${SCRIPTPATH%/*}
 
 # Display text
-TEXT="$(fortune bofh-excuses debian science linux computers paradoxum linuxcookie goedel disclaimer debian-hints work | sed 's/\t/  /g') \n\n\n\n...and that's why you can't croissant me! :D"
-VALUE="60" #brightness value to compare to
+# FORTUNE="$(fortune debian science linux computers paradoxum linuxcookie goedel disclaimer debian-hints work | sed 's/\t/  /g')"
+TRICKSTERS=("Diego" "Nicola" "Chiara" "Zach" "Francois" "Jose" "Lars")
+FORTUNE="$(fortune puns bofh-excuses | sed 's/\t/  /g')"
+TEXT="$FORTUNE\n\n\n...and that's why you'll never croissant me (again) ${TRICKSTERS[$RANDOM % ${#TRICKSTERS[@]} ]}!!"
+VALUE="60"  # brightness value to compare to
 scrot -z "$IMAGE"
 COLOR=$(convert "$IMAGE" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
     -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
-if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
+if [ "$COLOR" -gt "$VALUE" ]; then  # white background image and black text
     BW="black"
-    ICON="$SCRIPTPATH/lockdark.png"
-else #black
+else  # black
     BW="white"
-    ICON="$SCRIPTPATH/lock.png"
 fi
 
-convert "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" -font "$FONT" -pointsize 24 -fill "$BW" -gravity center \
-    -annotate +400+0 "$TEXT" "$IMAGE"
+convert \
+    "$IMAGE" "${HUE[@]}" "${EFFECT[@]}" \
+    -font "$FONT" -pointsize 24 -fill "$BW" -gravity center -annotate +400+0 "$TEXT" "$IMAGE"
+
+# Disable notifications
+pkill -u "$USER" -USR1 dunst
+
+# Pause music
+playerctl status && player_running=$? || player_running=$?
+if [ "$player_running" == 0 ]; then
+    music_status="$(playerctl status)"
+    if [ "$music_status" == "Playing" ]; then
+        playerctl pause
+    fi
+fi
 
 # Run the locker
 i3lock -n -i "$IMAGE"
+
+# resume message display
+pkill -u "$USER" -USR2 dunst
+# play music
+if [ "$music_status" == "Playing" ]; then
+    playerctl play
+fi

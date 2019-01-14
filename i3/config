@@ -15,6 +15,7 @@ exec google-chrome
 exec spotify
 exec gitter
 exec thunderbird
+exec xautolock -time 15 -locker '~/.local/bin/lock' &
 
 font pango:Hack-Regular, FontAwesome 8
 
@@ -65,7 +66,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# Cyckle workspaces
+# Cycle workspaces
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
@@ -160,7 +161,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # System mode
-bindsym $mod+l exec --no-startup-id ~/.local/bin/lock -p
+bindsym $mod+l exec --no-startup-id ~/.local/bin/lock
 set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.local/bin/lock, mode "default"
