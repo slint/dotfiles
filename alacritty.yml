@@ -3,19 +3,21 @@
 env:
   TERM: xterm-256color
 
-dimensions:
-  columns: 200
-  lines: 70
-
-padding:
-  x: 2
-  y: 2
+window:
+  dimensions:
+    columns: 200
+    lines: 70
+  padding:
+    x: 2
+    y: 2
 
 dpi:
   x: 96.0
   y: 96.0
 
 tabspaces: 4
+
+background_opacity: 0.3
 
 draw_bold_text_with_bright_colors: true
 
@@ -30,18 +32,16 @@ font:
     style: Italic
   size: 7.5
   offset:
-    x: -0.3
-    y: -1.0
+    x: -1
+    y: -1
   glyph_offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
   use_thin_strokes: true
 
 render_timer: false
 
 custom_cursor_colors: false
-
-background_opacity: 0.3
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -136,6 +136,10 @@ key_bindings:
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
   - { key: Insert,                  chars: "\x1b[2~"                     }
   - { key: Delete,                  chars: "\x1b[3~"                     }
+  - { key: Key0,     mods: Control, action: ResetFontSize                }
+  - { key: Equals,   mods: Control, action: IncreaseFontSize             }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -151,3 +155,4 @@ hide_cursor_when_typing: false
 
 shell:
   program: /bin/zsh
+
