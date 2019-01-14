@@ -24,7 +24,7 @@ export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="g _"
 export LPASS_AGENT_TIMEOUT=36000
 
 # Android
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_HOME=/usr/local/lib/android-sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 
