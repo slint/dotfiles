@@ -31,7 +31,7 @@ SCRIPTPATH=${SCRIPTPATH%/*}
 # Display text
 # FORTUNE="$(fortune debian science linux computers paradoxum linuxcookie goedel disclaimer debian-hints work | sed 's/\t/  /g')"
 TRICKSTERS=("Diego" "Nicola" "Chiara" "Zach" "Francois" "Jose" "Lars")
-FORTUNE="$(fortune puns bofh-excuses | sed 's/\t/  /g')"
+FORTUNE="$(fortune | sed 's/\t/  /g')"
 TEXT="$FORTUNE\n\n\n...and that's why you'll never croissant me (again) ${TRICKSTERS[$RANDOM % ${#TRICKSTERS[@]} ]}!!"
 VALUE="60"  # brightness value to compare to
 scrot -z "$IMAGE"

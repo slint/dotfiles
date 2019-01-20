@@ -3,18 +3,12 @@
 set $mod Mod4
 
 # Set displays
-set $primary_display DP2
-set $secondary_display VGA1
+# set $primary_display DP2
+# set $secondary_display VGA1
 
 # Update screen layout
-exec --no-startup-id redshift-gtk
-exec_always --no-startup-id ~/.screenlayout/active.sh
-exec --no-startup-id compton -b -c -f
-exec --no-startup-id alacritty -t Alacritty -e /home/alex/.scripts/start-tmux.sh
-exec google-chrome
-exec spotify
-exec gitter
-exec thunderbird
+exec --no-startup-id compton -b
+exec --no-startup-id alacritty -t Alacritty -e tmux new-session -A -s "$(hostname)"
 exec xautolock -time 15 -locker '~/.local/bin/lock' &
 
 font pango:Hack-Regular, FontAwesome 8
@@ -71,7 +65,6 @@ bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
 # switch to workspace
-bindsym $mod+grave workspace number 1 
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2 
 bindsym $mod+3 workspace number 3 
@@ -118,10 +111,22 @@ assign [title="Gitter"] 4 
 assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
 
+# Dropdown terminal
+for_window [instance="Alacritty"] floating enable
+for_window [instance="Alacritty"] resize set 1920 1065
+for_window [instance="Alacritty"] move scratchpad
+for_window [instance="Alacritty"] sticky enable
+for_window [instance="Alacritty"] border pixel 0
+bindsym $mod+grave [instance="Alacritty"] scratchpad show; [instance="Alacritty"] move position center
+
 # Google hangouts
 for_window [title="^Google Hangouts*" window_role="app"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
 for_window [title="^Google Hangouts*" window_role="app"] border pixel 0
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
+
+# Brightness keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Volume keys
 bindsym XF86AudioRaiseVolume exec amixer -q set PCM 2dB+ unmute
@@ -162,10 +167,12 @@ bindsym $mod+r mode "resize"
 
 # System mode
 bindsym $mod+l exec --no-startup-id ~/.local/bin/lock
-set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.local/bin/lock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id ~/.local/bin/lock && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.local/bin/lock && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -173,7 +180,7 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+F12 mode "$mode_system"
 
 # Moving flaoting panes around
 mode "moveit" {
@@ -196,10 +203,8 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 # Status bar
 bar {
-  output $primary_display
   status_command i3blocks
 
   strip_workspace_numbers yes
-  tray_output $primary_display
   tray_padding 0
 }
