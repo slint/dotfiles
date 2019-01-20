@@ -8,8 +8,8 @@ window:
     columns: 200
     lines: 70
   padding:
-    x: 2
-    y: 2
+    x: 5
+    y: 5
 
 dpi:
   x: 96.0
@@ -17,7 +17,7 @@ dpi:
 
 tabspaces: 4
 
-background_opacity: 0.3
+background_opacity: 0.9
 
 draw_bold_text_with_bright_colors: true
 
@@ -30,18 +30,16 @@ font:
   italic:
     family: Hack
     style: Italic
-  size: 7.5
+  size: 6.0
   offset:
-    x: -1
-    y: -1
+    x: 0
+    y: 0
   glyph_offset:
     x: 0
     y: 0
   use_thin_strokes: true
 
 render_timer: false
-
-custom_cursor_colors: false
 
 # Colors (Tomorrow Night Bright)
 colors:
@@ -147,11 +145,10 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
+  hide_cursor_when_typing: false
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-hide_cursor_when_typing: false
 
 shell:
   program: /bin/zsh
