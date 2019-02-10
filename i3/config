@@ -3,8 +3,8 @@
 set $mod Mod4
 
 # Set displays
-# set $primary_display DP2
-# set $secondary_display VGA1
+set $laptop_display eDP1
+set $external_screen_1 HDMI1
 
 # Update screen layout
 exec --no-startup-id compton -b
@@ -25,6 +25,9 @@ bindsym $mod+Shift+q kill
 # start rofi instead of dmenu
 bindsym $mod+d exec rofi -show run
 
+# Take screenshot with flameshot
+bindsym --release $mod+Print exec "flameshot gui"
+
 # change focus with cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -36,6 +39,15 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# move workspaces
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Down move workspace to output down
+bindsym $mod+Control+Up move workspace to output up
+bindsym $mod+Control+Right move workspace to output right
+
+# reset screens in case of fuckup
+bindsym $mod+Control+F7 exec xrandr --output eDP1 --auto --primary
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -74,7 +86,6 @@ bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9 
-bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1 
@@ -86,38 +97,37 @@ bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9 
-bindsym $mod+Shift+0 move container to workspace number 10
 
 # Customize applications for workspaces
-workspace 1 output $secondary_display
-workspace 2 output $primary_display
-workspace 3 output $primary_display
-workspace 4 output $primary_display
-workspace 5 output $primary_display
-workspace 6 output $primary_display
-workspace 7 output $primary_display
-workspace 8 output $primary_display
-workspace 9 output $primary_display
+workspace 1 output $laptop_display
+workspace 2 output $laptop_display
+workspace 3 output $laptop_display
+workspace 4 output $laptop_display
+workspace 5 output $laptop_display
+workspace 6 output $laptop_display
+workspace 7 output $laptop_display
+workspace 8 output $laptop_display
+workspace 9 output $laptop_display
 
 # Disable borders for some applications
-for_window [class="Alacritty"] border pixel 0
 for_window [title="Gitter"] border pixel 0
 for_window [class="Spotify"] border pixel 0
 
-assign [class="Alacritty"] 1 
 assign [class="Google-chrome"] 2 
 assign [class="Code"] 3 
 assign [title="Gitter"] 4 
 assign [class="Thunderbird"] 5 
 assign [class="Spotify"] 9 
+assign [instance="Alacritty"] output $laptop_display
+assign [title="^Google Hangouts*" window_role="app"] output $laptop_display
 
 # Dropdown terminal
 for_window [instance="Alacritty"] floating enable
-for_window [instance="Alacritty"] resize set 1920 1065
+for_window [instance="Alacritty"] resize set 1920 1070
 for_window [instance="Alacritty"] move scratchpad
 for_window [instance="Alacritty"] sticky enable
 for_window [instance="Alacritty"] border pixel 0
-bindsym $mod+grave [instance="Alacritty"] scratchpad show; [instance="Alacritty"] move position center
+bindsym $mod+grave [instance="Alacritty"] scratchpad show, move position center, resize set 1920 1070
 
 # Google hangouts
 for_window [title="^Google Hangouts*" window_role="app"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
@@ -129,14 +139,14 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Volume keys
-bindsym XF86AudioRaiseVolume exec amixer -q set PCM 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set PCM 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set PCM toggle
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+0 exec playerctl play-pause
+bindsym $mod+plus exec playerctl next
+bindsym $mod+minus exec playerctl previous
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -171,8 +181,10 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.local/bin/lock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id ~/.local/bin/lock && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.local/bin/lock && systemctl hibernate, mode "default"
+    # bindsym s exec --no-startup-id ~/.local/bin/lock && systemctl suspend, mode "default"
+    bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
+    # bindsym h exec --no-startup-id ~/.local/bin/lock && systemctl hibernate, mode "default"
+    bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
