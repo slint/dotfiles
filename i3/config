@@ -130,8 +130,8 @@ for_window [instance="Alacritty"] border pixel 0
 bindsym $mod+grave [instance="Alacritty"] scratchpad show, move position center, resize set 1920 1070
 
 # Google hangouts
-for_window [title="^Google Hangouts*" window_role="app"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
-for_window [title="^Google Hangouts*" window_role="app"] border pixel 0
+for_window [title="^Google Hangouts*" window_role="pop-up"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
+for_window [title="^Google Hangouts*" window_role="pop-up"] border pixel 0
 bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
 
 # Brightness keys
@@ -219,4 +219,5 @@ bar {
 
   strip_workspace_numbers yes
   tray_padding 0
+  tray_output primary
 }
