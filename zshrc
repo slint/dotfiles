@@ -6,9 +6,8 @@ zstyle :omz:plugins:ssh-agent identities id_rsa
 ZSH_THEME="amuse"
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
-         fasd sudo tmux virtualenvwrapper colored-man-pages
-         thefuck zsh-nvm zsh-syntax-highlighting alias-tips mix yarn extract
-         nvm)
+         sudo tmux virtualenvwrapper colored-man-pages
+         zsh-syntax-highlighting alias-tips extract)
 
 source $ZSH/oh-my-zsh.sh
 
