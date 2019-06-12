@@ -27,6 +27,8 @@ bindsym $mod+d exec rofi -show run
 
 # Take screenshot with flameshot
 bindsym --release $mod+Print exec "flameshot gui"
+# Take a screenshot, run OCR on it and put in clipboard
+bindsym --release $mod+Shift+Print exec "flameshot gui -r | tesseract stdin stdout | xclip -in -selection clipboard"
 
 # change focus with cursor keys:
 bindsym $mod+Left focus left
