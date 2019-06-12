@@ -1,5 +1,4 @@
-
-# oh-my-zsh
+# oh-my-zsh 
 export ZSH=$HOME/.oh-my-zsh
 zstyle :omz:plugins:ssh-agent identities id_rsa
 
@@ -10,6 +9,8 @@ plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
          zsh-syntax-highlighting alias-tips extract)
 
 source $ZSH/oh-my-zsh.sh
+
+source $HOME/.zsh-async/async.zsh
 
 autoload -U zmv
 
@@ -24,14 +25,21 @@ source $ZSH_CUSTOM/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+function load_nvm() {
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+}
+# Initialize nvm asynchronously
+async_start_worker nvm_worker -n
+async_register_callback nvm_worker load_nvm
+async_job nvm_worker sleep 0.1
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # Add ruby to PATH
 if which ruby >/dev/null && which gem >/dev/null; then
-  PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+  PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 #compdef pipenv
@@ -42,8 +50,6 @@ if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
   autoload -U compinit && compinit
   compdef _pipenv pipenv
 fi
-
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
