@@ -12,6 +12,7 @@ export EDITOR=vim
 export VISUAL=code
 export WORKON_HOME=$HOME/Envs
 export PROJECT_HOME=$HOME/Source
+export VIRTUALENVWRAPPER_WORKON_CD=0
 
 export SSH_KEY_PATH=$HOME/.ssh/id_rsa.pub
 
