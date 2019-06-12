@@ -55,3 +55,5 @@ eval "$(pyenv virtualenv-init -)"
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
