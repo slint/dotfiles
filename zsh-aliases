@@ -86,6 +86,7 @@ alias v='workon'
 # make virtualenv using current dir name if not provided
 alias v.mk='f() { mkvirtualenv -p python3 ${1:-$(basename $(pwd))}}; f'
 alias v.mk2='f() { mkvirtualenv -p python2 ${1:-$(basename $(pwd))}}; f'
+alias v.mk37='f() { mkvirtualenv -p python3.7 ${1:-$(basename $(pwd))}}; f'
 alias v.rm='rmvirtualenv'
 alias v.cd='cdvirtualenv'
 alias v.set='setprojectdir'
