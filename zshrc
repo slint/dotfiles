@@ -1,12 +1,12 @@
-# oh-my-zsh 
+# oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 zstyle :omz:plugins:ssh-agent identities id_rsa
 
 ZSH_THEME="amuse"
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
-         sudo tmux virtualenvwrapper colored-man-pages
-         zsh-syntax-highlighting alias-tips extract)
+         sudo tmux virtualenvwrapper colored-man-pages ripgrep
+         zsh-syntax-highlighting alias-tips extract zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,3 +62,19 @@ autoload -U compinit && compinit
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# https://github.com/zsh-users/zsh-autosuggestions/issues/351
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
