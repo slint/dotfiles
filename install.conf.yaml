@@ -9,6 +9,10 @@
     ~/.bash_logout: bash_logout
     ~/.vimrc: vimrc
 
+    ~/.scripts/:
+        glob: true
+        path: scripts/*
+
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/Code/User/snippets: vscode/snippets
@@ -25,7 +29,6 @@
     ~/.Xresources: Xresources
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
 
-    ~/.screenlayout/work.sh: screenlayout/work.sh
     ~/.config/i3/config: i3/config
     ~/.i3blocks.conf: i3/i3blocks.conf
     ~/.local/bin/lock: i3/lock

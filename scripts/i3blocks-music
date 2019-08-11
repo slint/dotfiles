@@ -1,0 +1,31 @@
+#!/bin/bash
+
+INSTANCE="${BLOCK_INSTANCE}"
+
+if [[ "${INSTANCE}" != "" ]]; then
+  ARGUMENTS="--player ${INSTANCE}"
+fi
+
+ICON_PLAY="➤"
+ICON_PAUSE="Ⅱ"
+ICON_STOP="≠"
+CUR_ICON=""
+
+PLAYER_STATUS=$(playerctl ${ARGUMENTS} status)
+INFO_TITLE=$(playerctl ${ARGUMENTS} metadata title)
+INFO_ALBUM=$(playerctl ${ARGUMENTS} metadata album)
+INFO_ARTIST=$(playerctl ${ARGUMENTS} metadata artist)
+
+if [[ "${PLAYER_STATUS}" = "Paused" ]]; then
+  CUR_ICON="${ICON_PAUSE}"
+elif [[ "${PLAYER_STATUS}" = "Playing" ]]; then
+  CUR_ICON="${ICON_PLAY}"
+else
+  CUR_ICON="${ICON_STOP}"
+fi
+
+if [[ "${INFO_TITLE}" != "" ]] && [[ "${INFO_ARTIST}" != "" ]]; then
+    TEXT="<span color='#dc322f'>${INFO_TITLE}</span> - <span color='#40ef9e'>${INFO_ARTIST}</span> (<span color='#d89b20'>${INFO_ALBUM}</span>) ${CUR_ICON}"
+    echo "$TEXT"
+    echo "$TEXT"
+fi
