@@ -93,11 +93,6 @@
   "gitlens.views.lineHistory.enabled": true,
   "liveshare.featureSet": "insiders",
   "markdown.extension.toc.levels": "2..6",
-  "python.formatting.blackArgs": [
-    "--line-length",
-    "79",
-    "--skip-string-normalization"
-  ],
   "python.formatting.blackPath": "${env:HOME}/.local/bin/black",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
