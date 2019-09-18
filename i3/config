@@ -4,7 +4,6 @@ set $mod Mod4
 
 # Set displays
 set $laptop_display eDP1
-set $external_screen_1 HDMI1
 
 # Update screen layout
 exec --no-startup-id compton -b
@@ -121,6 +120,7 @@ assign [class="Google-chrome"] 2 
 assign [class="Code"] 3 
 assign [title="Gitter"] 4 
 assign [class="Thunderbird"] 5 
+assign [class="Notable"] 6
 assign [class="Spotify"] 9 
 assign [instance="Alacritty"] output $laptop_display
 assign [title="^Google Hangouts*" window_role="app"] output $laptop_display
