@@ -44,3 +44,5 @@
     default = simple
 [gpg]
     program = gpg2
+[blame]
+	ignoreRevsFile = .git-ignore-revs-file
