@@ -33,11 +33,10 @@
   "editor.minimap.showSlider": "always",
   "editor.renderIndentGuides": true,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [79],
+  "editor.rulers": [79, 88],
   "editor.snippetSuggestions": "inline",
   "editor.tabCompletion": "on",
   "editor.wordWrap": "on",
-  "elastic.showResultAsDocument": false,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "vue-html": "html"
