@@ -78,3 +78,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+
+# preload git completions for usage in aliases
+_git 2>/dev/null

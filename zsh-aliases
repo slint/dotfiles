@@ -48,7 +48,10 @@ alias glu='git pull upstream'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'
 alias gbd='f() { git branch -D $1 }; f'
-alias gbdr='f() { git branch -D $1 && git push origin :$1; }; f'
+gbdr () {
+    git branch -D "$1" && git push origin :"$1"
+}
+compdef __git_branch_names gbdr
 
 GIT_LOG_FORMAT="\
 %C(auto,yellow)%h%C(auto)%d \
