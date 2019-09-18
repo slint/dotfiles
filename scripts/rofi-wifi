@@ -16,12 +16,21 @@ if wicd_scan_res.returncode != 0:
 wicd_list_res = subprocess.run(
     ['wicd-cli', '--wireless', '--list-networks'],
     capture_output=True, encoding='utf8')
-networks = [l.split('\t')[-1] for l in wicd_list_res.stdout.splitlines()[1:]]
+
+# networks are back in descending strength order, thus we want to keep only the
+# strongest selection for each ESSIDs (i.e. network name)
+networks = {}
+for line in wicd_list_res.stdout.splitlines()[1:]:
+    index, _, _, essid = line.split('\t')
+    networks.setdefault(essid.strip(), int(index))
+
+network_choices = sorted(networks, key=lambda k: networks[k])
 
 # Prompt user for network
-index, key = ROFI.select('Select a wireless network', networks)
+index, key = ROFI.select('Select a wireless network', network_choices)
 
 if key == 0:
+    network_index = networks[network_choices[index]]
     wicd_connect_res = subprocess.run(
         ['wicd-cli', '--wireless', '--connect', '--network', str(index)],
         capture_output=True, encoding='utf8')
