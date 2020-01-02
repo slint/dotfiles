@@ -46,3 +46,5 @@
     program = gpg2
 [credential]
 	helper = cache --timeout=14400
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
