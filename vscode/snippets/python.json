@@ -19,5 +19,18 @@
             "from show.pretty import *; show(${1:variable})"
         ],
         "description": "wdb trace"
+    },
+    "Text lines split": {
+        "prefix": "tls",
+        "body": [
+            "lines = \"\"\"",
+            "${1:text}",
+            "\"\"\".splitlines()[1:]\n",
+            "results = []",
+            "for l in lines:",
+            "    print(${2:l.strip()})",
+            "    results.append($2)"
+        ],
+        "description": "text lines split"
     }
 }
