@@ -17,5 +17,116 @@
     { "key": "alt+backspace", "command": "deleteWordPartLeft",
       "when": "textInputFocus && !editorReadonly" },
     { "key": "alt+delete", "command": "deleteWordPartRight",
-      "when": "textInputFocus && !editorReadonly" },
+      "when": "textInputFocus && !editorReadonly"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+left",
+      "command": "-markdownExtended.MoveColumnLeft",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+right",
+      "command": "-markdownExtended.MoveColumnRight",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+      "key": "ctrl+shift+right",
+      "command": "-markdownExtended.MoveColumnRight",
+      "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
 ]
