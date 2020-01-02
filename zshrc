@@ -22,6 +22,7 @@ source $ZSH_CUSTOM/plugins/zsh-syntax-highlightning/zsh-syntax-highlighting.zsh
 
 # Aliases
 [ -f $HOME/.zsh-aliases ] && source $HOME/.zsh-aliases
+[ -f $HOME/.zsh-aliases-local ] && source $HOME/.zsh-aliases-local
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

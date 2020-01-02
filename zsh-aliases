@@ -92,9 +92,9 @@ alias v.mk2='f() { mkvirtualenv -p python2 ${1:-$(basename $(pwd))}}; f'
 alias v.mk37='f() { mkvirtualenv -p python3.7 ${1:-$(basename $(pwd))}}; f'
 alias v.rm='rmvirtualenv'
 alias v.cd='cdvirtualenv'
+alias v.sp='cdsitepackages'
 alias v.set='setprojectdir'
 alias v.add2virtualenv='add2virtualenv'
-alias v.cdsitepackages='cdsitepackages'
 alias v.lssitepackages='lssitepackages'
 
 # FZF LastPass Keybinding
@@ -103,4 +103,3 @@ fzf-lpass-widget() {
 }
 zle -N fzf-lpass-widget
 bindkey '^P' fzf-lpass-widget
-
