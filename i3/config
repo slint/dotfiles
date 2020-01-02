@@ -52,7 +52,9 @@ bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Right move workspace to output right
 
 # reset screens in case of fuckup
-bindsym $mod+Control+F7 exec xrandr --output eDP1 --auto --primary
+bindsym $mod+Control+F7 exec xrandr --output $laptop_display --auto --primary
+# shortcut for horizontal layout
+bindsym $mod+F11 exec autorandr --load horizontal
 
 # split in horizontal orientation
 bindsym $mod+h split h
