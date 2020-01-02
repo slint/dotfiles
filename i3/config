@@ -5,10 +5,12 @@ set $mod Mod4
 # Set displays
 set $laptop_display eDP1
 
-# Update screen layout
+# Start background things
 exec --no-startup-id compton -b
+exec --no-startup-id setxkbmap -layout us,gr -option grp:alt_shift_toggle -option ctrl:nocaps
 exec --no-startup-id alacritty -t Alacritty -e tmux new-session -A -s "$(hostname)"
-exec xautolock -time 15 -locker '~/.local/bin/lock' &
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id ~/.scripts/idle-lock.sh
 
 font pango:Hack-Regular, FontAwesome 8
 
