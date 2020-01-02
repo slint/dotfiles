@@ -152,9 +152,9 @@ bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
 
 # Media player controls
-bindsym $mod+0 exec playerctl play-pause
-bindsym $mod+plus exec playerctl next
-bindsym $mod+minus exec playerctl previous
+bindsym $mod+0 exec playerctl --player spotify play-pause
+bindsym $mod+plus exec playerctl --player spotify next
+bindsym $mod+minus exec playerctl --player spotify previous
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
