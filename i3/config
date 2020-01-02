@@ -27,6 +27,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+j exec rofi -show window
 bindsym $mod+Shift+w exec ~/.scripts/rofi-wifi
+bindsym $mod+Shift+p exec ~/.scripts/rofi-lpass
 
 # Take screenshot with flameshot
 bindsym --release $mod+Print exec "flameshot gui"

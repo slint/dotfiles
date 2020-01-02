@@ -10,7 +10,8 @@ sudo apt -y install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
   ttf-mscorefonts-installer gnupg-agent gnupg2 pinentry-curses scrot tree \
   imagemagick rofi ranger thunderbird evince fonts-dejavu ruby ruby-dev \
   python-setuptools udisks python-gobject python-yaml libgio2.0 \
-  gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7
+  gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7 \
+  confget
 
 # Python
 sudo add-apt-repository ppa:deadsnakes/ppa
