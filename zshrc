@@ -1,5 +1,6 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
+setopt HIST_IGNORE_SPACE
 zstyle :omz:plugins:ssh-agent identities id_rsa
 
 ZSH_THEME="amuse"

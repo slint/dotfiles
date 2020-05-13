@@ -18,6 +18,9 @@ alias ci.='code-insiders .'
 alias http='noglob http'
 alias vim='vim -S ~/.vimrc'
 
+# Don't log in history "jrnl" usage
+alias jrnl=" jrnl"
+
 alias fd='find . -type d -iname'
 alias ff='find . -type f -iname'
 
@@ -61,7 +64,6 @@ GIT_LOG_FORMAT="\
 alias gl='noglob git log -25 --all --graph --pretty=format:$GIT_LOG_FORMAT'
 
 alias gdel='f() { git branch -D $1 && git push ${2:-origin} :$1; }; f'
-alias gpr='f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
     mkdir -p ~/tmp && \
