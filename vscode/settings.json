@@ -25,7 +25,7 @@
   "editor.codeActionsOnSave": {},
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": true,
-  "editor.fontFamily": "'Hack', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Hack Nerd Font Mono', 'Droid Sans Mono', 'Courier New', 'Droid Sans Fallback', monospace",
   "editor.fontSize": 12,
   "editor.minimap.enabled": true,
   "editor.minimap.maxColumn": 90,
