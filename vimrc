@@ -83,5 +83,15 @@ map <leader><space> :nohl<cr>
 " Formatting
 map <leader>q gqip
 
-set pastetoggle=<F2>
+" Fix pasting (from https://stackoverflow.com/a/38258720/2099726)
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
 
