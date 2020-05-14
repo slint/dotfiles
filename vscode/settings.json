@@ -42,8 +42,11 @@
     "vue-html": "html"
   },
   "explorer.openEditors.visible": 0,
-  "extensions.autoUpdate": false,
-  "files.associations": { "*.env": "yaml" },
+  "extensions.autoUpdate": true,
+  "files.associations": {
+    "*.env": "yaml",
+    "*.html": "jinja-html"
+  },
   "files.defaultLanguage": "python",
   "files.exclude": {
     "**/__pycache__": true,
@@ -104,18 +107,19 @@
   "search.exclude": { "**/.pytest_cache": true, "**/.vscode": true },
   "search.useGlobalIgnoreFiles": true,
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.fontFamily": "Hack",
+  "terminal.integrated.fontFamily": "Hack Nerd Font",
   "terminal.integrated.fontSize": 11,
   "window.menuBarVisibility": "toggle",
   "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
   "window.titleBarStyle": "native",
   "window.zoomLevel": 1,
   "workbench.colorCustomizations": {},
-  "workbench.colorTheme": "Material Night Eighties",
+  "workbench.colorTheme": "Material Eighties Night",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.keyboardNavigation": "filter",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "discord.enabled": false
 }

@@ -129,4 +129,8 @@
       "command": "-markdownExtended.MoveColumnRight",
       "when": "editorTextFocus && editorLangId == 'markdown'"
     },
+    {
+      "key": "ctrl+shift+0",
+      "command": "workbench.action.zoomReset"
+    }
 ]
