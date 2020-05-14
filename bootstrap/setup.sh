@@ -5,7 +5,7 @@ sudo apt update && sudo apt -y upgrade
 sudo apt -y install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
   i3 i3blocks ubuntu-drivers-common mesa-utils mesa-utils-extra compton xorg \
   xserver-xorg nautilus gnome-terminal volumeicon-alsa intel-microcode \
-  build-essential software-properties-common git curl wget ncdu lynx htop \
+  build-essential software-properties-common curl wget ncdu lynx htop \
   wmctrl cmake libfreetype6-dev libfontconfig1-dev xclip fonts-font-awesome \
   ttf-mscorefonts-installer gnupg-agent gnupg2 pinentry-curses scrot tree \
   imagemagick rofi ranger thunderbird evince fonts-dejavu ruby ruby-dev \
@@ -14,23 +14,32 @@ sudo apt -y install lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
   confget
 
 # Python
-sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
-sudo apt -y install python-pip python3-pip python-dev python3-dev python3.6 \
-  python3.6-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev \
+sudo apt install -y make libssl-dev zlib1g-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
+  xz-utils tk-dev libffi-dev liblzma-dev python-openssl
+
+sudo apt install -y python3.6-dev libffi-dev libxml2-dev libxslt1-dev libjpeg8-dev \
   zlib1g-dev libcairo2-dev libfreetype6-dev
 sudo pip install -U pip
 sudo pip3 install -U pip
 pip install --user virtualenv virtualenvwrapper
 
-# Pipsi
-if ! [ -x "$(command -v pipsi)" ]; then
-  echo 'INFO: installing `pipsi`...'
-  curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python3
+
+# pyenv
+if ! [ -x "$(command -v pyenv)" ]; then
+  echo 'INFO: installing `pyenv`...'
+  curl https://pyenv.run | bash
 fi
 
-declare -a pipsi_apps=("httpie" "pgcli" "unp" "cookiecutter" "seashells" "thefuck")
-for pa in "${pipsi_apps[@]}"; do pipsi install $pa; done
+# pipx
+if ! [ -x "$(command -v pipx)" ]; then
+  echo 'INFO: installing `pipx`...'
+  python3 -m pip install --user pipx
+fi
+
+declare -a pipx_apps=("httpie" "pgcli" "unp" "cookiecutter" "seashells" "thefuck")
+for pa in "${pipx_apps[@]}"; do pipx install "$pa"; done
 
 # Zsh
 if ! [ -x "$(command -v zsh)" ]; then
