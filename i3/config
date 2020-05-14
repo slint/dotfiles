@@ -8,9 +8,13 @@ set $laptop_display eDP1
 # Start background things
 exec --no-startup-id compton -b
 exec --no-startup-id setxkbmap -layout us,gr -option grp:alt_shift_toggle -option ctrl:nocaps
-exec --no-startup-id alacritty -t Alacritty -e tmux new-session -A -s "$(hostname)"
+exec --no-startup-id alacritty -t "main-terminal" -e tmux new-session -A -s "$(hostname)"
+exec --no-startup-id alacritty -t "jrnl-terminal"
+
+
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id ~/.scripts/idle-lock.sh
+exec --no-startup-id flameshot
 
 font pango:Hack-Regular, FontAwesome 8
 
@@ -27,7 +31,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+j exec rofi -show window
 bindsym $mod+Shift+w exec ~/.scripts/rofi-wifi
-bindsym $mod+Shift+p exec ~/.scripts/rofi-lpass
+bindsym $mod+p exec ~/.scripts/rofi-lpass
 
 # Take screenshot with flameshot
 bindsym --release $mod+Print exec "flameshot gui"
@@ -67,7 +71,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -85,8 +88,8 @@ bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
 # switch to workspace
-bindsym $mod+1 workspace number 1 
-bindsym $mod+2 workspace number 2 
+bindsym $mod+1 workspace number 1 
+bindsym $mod+2 workspace number 2 
 bindsym $mod+3 workspace number 3 
 bindsym $mod+4 workspace number 4 
 bindsym $mod+5 workspace number 5 
@@ -96,8 +99,8 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1 
-bindsym $mod+Shift+2 move container to workspace number 2 
+bindsym $mod+Shift+1 move container to workspace number 1 
+bindsym $mod+Shift+2 move container to workspace number 2 
 bindsym $mod+Shift+3 move container to workspace number 3 
 bindsym $mod+Shift+4 move container to workspace number 4 
 bindsym $mod+Shift+5 move container to workspace number 5 
@@ -121,22 +124,32 @@ workspace 9 output $laptop_display
 for_window [title="Gitter"] border pixel 0
 for_window [class="Spotify"] border pixel 0
 
-assign [class="Google-chrome"] 2 
+assign [class="Google-chrome"] 1 
+assign [class="Inkdrop"] 2 
 assign [class="Code"] 3 
 assign [title="Gitter"] 4 
 assign [class="Thunderbird"] 5 
 assign [class="Notable"] 6
 assign [class="Spotify"] 9 
-assign [instance="Alacritty"] output $laptop_display
+assign [title="main-terminal"] output $laptop_display
 assign [title="^Google Hangouts*" window_role="app"] output $laptop_display
 
-# Dropdown terminal
-for_window [instance="Alacritty"] floating enable
-for_window [instance="Alacritty"] resize set 1920 1070
-for_window [instance="Alacritty"] move scratchpad
-for_window [instance="Alacritty"] sticky enable
-for_window [instance="Alacritty"] border pixel 0
-bindsym $mod+grave [instance="Alacritty"] scratchpad show, move position center, resize set 1920 1070
+# Overlay terminal
+for_window [title="main-terminal"] floating enable
+for_window [title="main-terminal"] resize set 1920 1070
+for_window [title="main-terminal"] move scratchpad
+for_window [title="main-terminal"] sticky enable
+for_window [title="main-terminal"] border pixel 0
+bindsym $mod+grave [title="main-terminal"] scratchpad show, move position center, resize set 1920 1070
+
+# Journaling terminal
+for_window [title="jrnl-terminal"] floating enable
+for_window [title="jrnl-terminal"] resize set 800 600
+for_window [title="jrnl-terminal"] move scratchpad
+for_window [title="jrnl-terminal"] sticky enable
+for_window [title="jrnl-terminal"] border pixel 0
+bindsym $mod+s [title="jrnl-terminal"] scratchpad show, move position center, resize set 800 600,
+
 
 # Google hangouts
 for_window [title="^Google Hangouts*" window_role="pop-up"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
