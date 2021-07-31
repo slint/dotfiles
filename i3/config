@@ -9,8 +9,6 @@ set $laptop_display eDP1
 exec --no-startup-id compton -b
 exec --no-startup-id setxkbmap -layout us,gr -option grp:alt_shift_toggle -option ctrl:nocaps
 exec --no-startup-id alacritty -t "main-terminal" -e tmux new-session -A -s "$(hostname)"
-exec --no-startup-id alacritty -t "jrnl-terminal"
-
 
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id ~/.scripts/idle-lock.sh
@@ -83,10 +81,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# Cycle workspaces
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
-
 # switch to workspace
 bindsym $mod+1 workspace number 1 
 bindsym $mod+2 workspace number 2 
@@ -123,6 +117,8 @@ workspace 9 output $laptop_display
 # Disable borders for some applications
 for_window [title="Gitter"] border pixel 0
 for_window [class="Spotify"] border pixel 0
+# Fix Yad to be floating window by default
+for_window [class="Yad"] floating enable border pixel 0
 
 assign [class="Google-chrome"] 1 
 assign [class="Inkdrop"] 2 
@@ -142,19 +138,13 @@ for_window [title="main-terminal"] sticky enable
 for_window [title="main-terminal"] border pixel 0
 bindsym $mod+grave [title="main-terminal"] scratchpad show, move position center, resize set 1920 1070
 
-# Journaling terminal
-for_window [title="jrnl-terminal"] floating enable
-for_window [title="jrnl-terminal"] resize set 800 600
-for_window [title="jrnl-terminal"] move scratchpad
-for_window [title="jrnl-terminal"] sticky enable
-for_window [title="jrnl-terminal"] border pixel 0
-bindsym $mod+s [title="jrnl-terminal"] scratchpad show, move position center, resize set 800 600,
-
-
-# Google hangouts
-for_window [title="^Google Hangouts*" window_role="pop-up"] move window to scratchpad, resize set 300 550, move position 3468 1213, move scratchpad, scratchpad
-for_window [title="^Google Hangouts*" window_role="pop-up"] border pixel 0
-bindsym $mod+m [title="^Google Hangouts*"] scratchpad show
+# Todoist window
+for_window [class="Todoist"] floating enable
+for_window [class="Todoist"] resize set 1200 1000
+for_window [class="Todoist"] move scratchpad
+for_window [class="Todoist"] sticky enable
+for_window [class="Todoist"] border pixel 0
+bindsym $mod+s [class="Todoist"] scratchpad show, move position center, resize set 1200 1000
 
 # Brightness keys
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5

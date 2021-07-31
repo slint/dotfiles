@@ -4,7 +4,8 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias r!='source ~/.zshrc'
 alias zmv='noglob zmv -W'
 alias watch='watch '
-# alias assh='assh wrapper ssh'
+alias ssh='TERM=xterm-color ssh'
+alias ic='invenio-cli'
 
 # Edit dotfiles
 alias dot.='code ~/.dotfiles'
@@ -17,9 +18,6 @@ alias c.='code .'
 alias ci.='code-insiders .'
 alias http='noglob http'
 alias vim='vim -S ~/.vimrc'
-
-# Don't log in history "jrnl" usage
-alias jrnl=" jrnl"
 
 alias fd='find . -type d -iname'
 alias ff='find . -type f -iname'
@@ -41,7 +39,6 @@ alias pf='noglob pip list | grep -i '
 # Git
 alias gs='git status'
 alias gstash='git stash save --include-untracked'
-alias go='git checkout'
 alias gc='git commit -S'
 alias gca='git commit --amend -S'
 alias gcad='git commit --amend -S --date=now'
@@ -63,6 +60,7 @@ GIT_LOG_FORMAT="\
 %C(auto,cyan)%ar%C(auto,reset)]"
 alias gl='noglob git log -25 --all --graph --pretty=format:$GIT_LOG_FORMAT'
 
+alias pg='f() { c=${1:-$(basename $(pwd))}; pgcli "postgresql://$c:$c@localhost:5432/$c"; }; f'
 alias gdel='f() { git branch -D $1 && git push ${2:-origin} :$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
@@ -92,6 +90,7 @@ alias v='workon'
 alias v.mk='f() { mkvirtualenv -p python3 ${1:-$(basename $(pwd))}}; f'
 alias v.mk2='f() { mkvirtualenv -p python2 ${1:-$(basename $(pwd))}}; f'
 alias v.mk37='f() { mkvirtualenv -p python3.7 ${1:-$(basename $(pwd))}}; f'
+alias v.mk39='f() { mkvirtualenv -p python3.9 ${1:-$(basename $(pwd))}}; f'
 alias v.rm='rmvirtualenv'
 alias v.cd='cdvirtualenv'
 alias v.sp='cdsitepackages'

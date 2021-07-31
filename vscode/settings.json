@@ -1,4 +1,7 @@
 {
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
   "[css]": { "editor.tabSize": 2 },
   "[elixir]": { "editor.tabSize": 2 },
   "[graphql]": { "editor.tabSize": 2 },
@@ -97,22 +100,22 @@
   "python.formatting.blackPath": "${env:HOME}/.local/bin/black",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  "python.linting.pydocstyleEnabled": true,
   "python.linting.pylintEnabled": false,
   "python.venvPath": "${env:HOME}/Envs",
   "python.workspaceSymbols.exclusionPatterns": [
     "**/site-packages/**",
     "**/site-packages/**/*.pyc"
   ],
-  "search.exclude": { "**/.pytest_cache": true, "**/.vscode": true },
-  "search.useGlobalIgnoreFiles": true,
+  "search.exclude": {
+    "**/.pytest_cache": true,
+    "**/.vscode": true
+  },
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "Hack Nerd Font",
   "terminal.integrated.fontSize": 11,
   "window.menuBarVisibility": "toggle",
   "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 1,
   "workbench.colorCustomizations": {},
   "workbench.colorTheme": "Material Eighties Night",
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -121,5 +124,28 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "vsicons.dontShowNewVersionMessage": true,
-  "discord.enabled": false
+  "discord.enabled": false,
+  "python.languageServer": "Pylance",
+  "shellcheck.disableVersionCheck": true,
+  "extensions.ignoreRecommendations": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[csv]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "[plaintext]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "python.showStartPage": false,
+  "liveshare.authenticationProvider": "GitHub",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "search.useGlobalIgnoreFiles": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "security.workspace.trust.untrustedFiles": "open"
 }

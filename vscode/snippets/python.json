@@ -25,7 +25,7 @@
         "body": [
             "lines = \"\"\"",
             "${1:text}",
-            "\"\"\".splitlines()[1:]\n",
+            "\"\"\".strip().splitlines()\n",
             "results = []",
             "for l in lines:",
             "    print(${2:l.strip()})",

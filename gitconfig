@@ -6,7 +6,10 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
-    pager = "diff-so-fancy | less --tabs=4 -RFX"
+    pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+
+[interactive]
+    diffFilter = delta --color-only
 [pager]
     log = cat
 [web]
@@ -46,5 +49,20 @@
     program = gpg2
 [credential]
 	helper = cache --timeout=14400
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
+[fetch]
+	prune = true
+[pull]
+	ff = only
+[diff "jupyternotebook"]
+	command = git-nbdiffdriver diff
+[merge "jupyternotebook"]
+	driver = git-nbmergedriver merge %O %A %B %L %P
+	name = jupyter notebook merge driver
+[difftool "nbdime"]
+	cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+[difftool]
+	prompt = false
+[mergetool "nbdime"]
+	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool]
+	prompt = false
