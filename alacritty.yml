@@ -1,8 +1,5 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 
-env:
-  TERM: xterm-256color
-
 window:
   dimensions:
     columns: 200
@@ -10,12 +7,12 @@ window:
   padding:
     x: 5
     y: 5
+  opacity: 0.9
 
-dpi:
-  x: 96.0
-  y: 96.0
+decorations: none
 
-background_opacity: 0.9
+startup_mode: Fullscreen
+
 
 draw_bold_text_with_bright_colors: true
 
@@ -28,13 +25,7 @@ font:
   italic:
     family: Hack Nerd Font Mono
     style: Italic
-  size: 6.0
-  offset:
-    x: 0
-    y: 0
-  glyph_offset:
-    x: 0
-    y: 0
+  size: 9.0
   use_thin_strokes: true
 
 # Colors (Tomorrow Night Bright)
@@ -132,7 +123,7 @@ key_bindings:
   - { key: Delete,                  chars: "\x1b[3~"                     }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Minus, mods: Control, action: DecreaseFontSize             }
 
 
 mouse_bindings:
@@ -147,5 +138,4 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 shell:
-  program: /bin/zsh
-
+  program: /usr/sbin/zsh
