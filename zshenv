@@ -14,11 +14,16 @@ export PATH=$PATH:$HOME/.docker-services/bin
 # Heroku binary
 export PATH=$PATH:/usr/local/heroku/bin
 
+# fly.io
+export FLYCTL_INSTALL="$HOME/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 export EDITOR=vim
 export VISUAL="code --wait"
 export WORKON_HOME=$HOME/Envs
 export PROJECT_HOME=$HOME/Source
 export VIRTUALENVWRAPPER_WORKON_CD=0
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 export SSH_KEY_PATH=$HOME/.ssh/id_rsa.pub
 

@@ -9,11 +9,6 @@
       "when": "textInputFocus" },
     { "key": "alt+left", "command": "cursorWordPartStartLeft",
       "when": "textInputFocus" },
-    // These clash with the inner selection tricks...
-    // { "key": "shift+alt+left", "command": "cursorWordPartStartLeftSelect",
-    //   "when": "textInputFocus" },
-    // { "key": "shift+alt+right", "command": "cursorWordPartRightSelect",
-    //   "when": "textInputFocus" },
     { "key": "alt+backspace", "command": "deleteWordPartLeft",
       "when": "textInputFocus && !editorReadonly" },
     { "key": "alt+delete", "command": "deleteWordPartRight",

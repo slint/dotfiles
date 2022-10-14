@@ -1,4 +1,3 @@
-
 # Generic
 alias zshrc='$EDITOR ~/.zshrc'
 alias r!='source ~/.zshrc'
@@ -6,6 +5,7 @@ alias zmv='noglob zmv -W'
 alias watch='watch '
 alias ssh='TERM=xterm-color ssh'
 alias ic='invenio-cli'
+alias cliphtml='xclip -t text/html -in -selection clipboard'
 
 # Edit dotfiles
 alias dot.='code ~/.dotfiles'
@@ -89,8 +89,9 @@ alias v='workon'
 # make virtualenv using current dir name if not provided
 alias v.mk='f() { mkvirtualenv -p python3 ${1:-$(basename $(pwd))}}; f'
 alias v.mk2='f() { mkvirtualenv -p python2 ${1:-$(basename $(pwd))}}; f'
-alias v.mk37='f() { mkvirtualenv -p python3.7 ${1:-$(basename $(pwd))}}; f'
+alias v.mk38='f() { mkvirtualenv -p python3.8 ${1:-$(basename $(pwd))}}; f'
 alias v.mk39='f() { mkvirtualenv -p python3.9 ${1:-$(basename $(pwd))}}; f'
+alias v.mk310='f() { mkvirtualenv -p python3.10 ${1:-$(basename $(pwd))}}; f'
 alias v.rm='rmvirtualenv'
 alias v.cd='cdvirtualenv'
 alias v.sp='cdsitepackages'
@@ -98,9 +99,9 @@ alias v.set='setprojectdir'
 alias v.add2virtualenv='add2virtualenv'
 alias v.lssitepackages='lssitepackages'
 
-# FZF LastPass Keybinding
-fzf-lpass-widget() {
-    lpass show --password $(lpass ls  | fzf-tmux | sed -rn 's/^.+id: ([0-9]+)]/\1/p') | clipcopy
+# WebM to GIF
+function webm2gif() {
+    ffmpeg -y -i $1 -vf palettegen _tmp_palette.png
+    ffmpeg -y -i $1 -i _tmp_palette.png -filter_complex paletteuse -r 10  ${1%.webm}.gif
+    rm _tmp_palette.png
 }
-zle -N fzf-lpass-widget
-bindkey '^P' fzf-lpass-widget

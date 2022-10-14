@@ -1,18 +1,25 @@
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 setopt HIST_IGNORE_SPACE
 zstyle :omz:plugins:ssh-agent identities id_rsa
 
 ZSH_THEME="amuse"
 plugins=(git ssh-agent gpg-agent pip httpie postgres docker docker-compose
-         sudo tmux virtualenvwrapper colored-man-pages ripgrep
+         sudo tmux colored-man-pages ripgrep
          zsh-syntax-highlighting alias-tips extract zsh-autosuggestions)
 
+DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.zsh-async/async.zsh
 
 autoload -U zmv
+
+# ZSH-specific config
+unsetopt autocd
+unsetopt beep
+unsetopt nomatch
 
 # FZF Integration
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -20,17 +27,6 @@ autoload -U zmv
 # Aliases
 [ -f $HOME/.zsh-aliases ] && source $HOME/.zsh-aliases
 [ -f $HOME/.zsh-aliases-local ] && source $HOME/.zsh-aliases-local
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-function load_nvm() {
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-}
-# Initialize nvm asynchronously
-async_start_worker nvm_worker -n
-async_register_callback nvm_worker load_nvm
-async_job nvm_worker sleep 0.1
 
 # Add ruby to PATH
 if which ruby >/dev/null && which gem >/dev/null; then
@@ -47,9 +43,11 @@ if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
 fi
 
 # pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+pyenv virtualenvwrapper
+
+# pipx
+export PIPX_DEFAULT_PYTHON="$HOME/.pyenv/versions/3.8.12/bin/python"
 
 # gh-cli
 eval "$(gh completion -s zsh)"
@@ -81,3 +79,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 _git 2>/dev/null
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
