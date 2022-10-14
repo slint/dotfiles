@@ -1,15 +1,31 @@
 [user]
-    name = Alexander Ioannidis
+    name = Alex Ioannidis
     email = a.ioannidis@cern.ch
     signingkey = F4B3BE9C3F209D40
 
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
-    pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+    pager = delta 
+
+[delta]
+    features = decorations
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
 [pager]
     log = cat
 [web]
