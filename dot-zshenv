@@ -1,0 +1,37 @@
+# Add scripts to path
+export PATH=$PATH:$HOME/.scripts
+
+# Pager
+export PAGER="less -FX"
+
+# Editors
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Python virtualenv(wrapper)
+export WORKON_HOME=$HOME/Envs
+export PROJECT_HOME=$HOME/Source
+export VIRTUALENVWRAPPER_WORKON_CD=0
+export VIRTUAL_ENV_DISABLE_PROMPT=""
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+# export SETUPTOOLS_ENABLE_FEATURES="legacy-editable"
+
+# Homebrew
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Use ipdb for Python debugging
+export PYTHONBREAKPOINT=ipdb.set_trace
+
+# TODO: See if needed
+export SSH_KEY_PATH=$HOME/.ssh/id_rsa.pub
+
+# alias-tips exceptions
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="g _"
+
+# Flask
+FLASK_SKIP_DOTENV=1
+
+# Pipenv (ignore some warnings)
+export PIPENV_DONT_LOAD_ENV=1
+export PIPENV_VERBOSITY=-1
+. "$HOME/.cargo/env"

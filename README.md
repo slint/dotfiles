@@ -1,21 +1,22 @@
 # Ridiculous dotfiles
 
-> By the seventh day God had finished the work he had been doing; so on the
-> seventh day he rested from all his work...
-
 ## Installation
 
-Currently only a lightly "supervised" installations is possible, since digging
-through all of the different packages/installations and their flags was too
-time-consuming...
+We're going straight GNU/Linux up in this repo, so we'll be using [`stow`](https://www.gnu.org/software/stow/manual/stow.html):
 
-To get started on a fresh Debian-based machine (with no display manager):
+```bash
+# First clone the repo in the home dir
+git clone git@github.com:slint/dotfiles.git "~/.dotfiles"
+cd ~/.dotfiles
 
-```shell
-sudo apt install git
-# Use HTTPS since there's probably no .ssh folder yet...
-git clone https://github.com/slint/dotfiles.git
-bash scripts/setup.sh
+# Symlink all the dotfiles from the parent dir (i.e. home) to this
+# directory.
+stow --dotfiles --adopt .
 
-# Follow instructions of various applications as they get installed...
+# Diff the changes
+git diff
+
+# Apply them
+git reset --hard
 ```
+

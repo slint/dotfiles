@@ -2,21 +2,14 @@
     "IPDB Debugging": {
         "prefix": "ipdb",
         "body": [
-            "import ipdb; ipdb.set_trace()"
+            "__import__(\"ipdb\").set_trace()"
         ],
         "description": "ipdb trace"
     },
     "WDB Debugging": {
         "prefix": "wdb",
         "body": [
-            "import wdb; wdb.set_trace()"
-        ],
-        "description": "wdb trace"
-    },
-    "Debug Printing": {
-        "prefix": "dbg",
-        "body": [
-            "from show.pretty import *; show(${1:variable})"
+            "__import__(\"wdb\").set_trace()"
         ],
         "description": "wdb trace"
     },

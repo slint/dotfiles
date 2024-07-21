@@ -34,15 +34,20 @@ Thumbs.db
 *.pyc
 .pytest_cache
 .ipynb_checkpoints
+pyrightconfig.json
 
 # JS
 node_modules/
 
 # Editor files
 .vscode
+.zed
 .elixir_ls
 
-# Custom stuff
-Alex-TODO.md
+# environment
+.env
+
+# Temporary directories
+tmp/
 
 .vagrant/

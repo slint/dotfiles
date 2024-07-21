@@ -1,0 +1,72 @@
+[user]
+	name = Alex Ioannidis
+	email = a.ioannidis@cern.ch
+	signingkey = /Users/aioannid/.ssh/id_ed25519.pub
+
+[core]
+    excludesfile = ~/.gitignore_global
+
+[diff]
+    tool = difftastic
+    external = difft
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+    log = cat
+    difftool = true
+
+[commit]
+	gpgsign = true
+
+[color]
+    ui = always
+[color "diff"]
+    meta = yellow bold
+    commit = green bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+
+[status]
+	showUntrackedFiles = all
+
+[merge]
+    ff = only
+    conflictstyle = diff3
+[push]
+    default = simple
+    autoSetupRemote = true
+
+[credential]
+	helper = cache --timeout=14400
+
+[fetch]
+	prune = true
+[pull]
+	ff = only
+[gpg]
+	format = ssh
+[tag]
+	gpgsign = true
+[init]
+	defaultBranch = master
+[advice]
+	skippedCherryPicks = false
+
+[rerere]
+	enabled = true

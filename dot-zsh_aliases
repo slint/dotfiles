@@ -1,3 +1,8 @@
+#!/bin/zsh
+
+# Config bare repo management
+alias dtf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 # Generic
 alias zshrc='$EDITOR ~/.zshrc'
 alias r!='source ~/.zshrc'
@@ -5,27 +10,21 @@ alias zmv='noglob zmv -W'
 alias watch='watch '
 alias ssh='TERM=xterm-color ssh'
 alias ic='invenio-cli'
-alias cliphtml='xclip -t text/html -in -selection clipboard'
+alias sed='gsed'
+alias htop='TERM=xterm htop'
+alias vd='TERM=xterm vd'
+alias ungron='gron -u'
 
-# Edit dotfiles
-alias dot.='code ~/.dotfiles'
-
-# Use 256-color mode in tmux
-alias tmux='tmux -2'
-
-alias s.='subl .'
+# Editors
 alias c.='code .'
-alias ci.='code-insiders .'
-alias http='noglob http'
-alias vim='vim -S ~/.vimrc'
+alias code='code '
+alias v.='nvim .'
+alias vim='nvim'
+alias z.='zed .'
 
+# Find
 alias fd='find . -type d -iname'
 alias ff='find . -type f -iname'
-
-# Music player
-alias mplay='playerctl play'
-alias mpause='playerctl pause'
-alias mstop='playerctl stop'
 
 # pip
 alias p='noglob pip'
@@ -34,10 +33,21 @@ alias pu='pip uninstall'
 alias pia='noglob pip install .[all]'
 alias pie='noglob pip install -e'
 alias piea='noglob pip install -e .[all]'
-alias pf='noglob pip list | grep -i '
+alias pf='pip list | grep -i '
+
+# uv pip equivalents, could possibly become the default
+alias upf='uv pip list | grep -i '
+alias up='noglob uv pip'
+alias upi='uv pip install'
+alias upu='uv pip uninstall'
+alias upia='noglob uv pip install .[all]'
+alias upie='noglob uv pip install -e'
+alias upiea='noglob uv pip install -e .[all]'
+alias upf='uv pip list | grep -i '
 
 # Git
 alias gs='git status'
+alias gsh='git show --ext-diff'
 alias gstash='git stash save --include-untracked'
 alias gc='git commit -S'
 alias gca='git commit --amend -S'
@@ -52,6 +62,7 @@ gbdr () {
     git branch -D "$1" && git push origin :"$1"
 }
 compdef __git_branch_names gbdr
+alias gt='f() { git tag -a $1 -m "release: $1" }; f'
 
 GIT_LOG_FORMAT="\
 %C(auto,yellow)%h%C(auto)%d \
@@ -59,15 +70,12 @@ GIT_LOG_FORMAT="\
 [%C(auto,blue)%<(6,trunc)%an%x08%x08%C(auto,reset), \
 %C(auto,cyan)%ar%C(auto,reset)]"
 alias gl='noglob git log -25 --all --graph --pretty=format:$GIT_LOG_FORMAT'
-
-alias pg='f() { c=${1:-$(basename $(pwd))}; pgcli "postgresql://$c:$c@localhost:5432/$c"; }; f'
 alias gdel='f() { git branch -D $1 && git push ${2:-origin} :$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
     mkdir -p ~/tmp && \
     rsync -a --delete `pwd` ~/tmp/ && \
     cowsay -f `ls /usr/share/cowsay/cows | shuf -n 1` "You have my permission to git now..."'
-
 alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
 alias gcern='git config user.email a.ioannidis@cern.ch'
 
@@ -77,6 +85,7 @@ alias dps="docker ps"
 alias dpa="docker ps -a"
 alias di="docker images"
 
+# Docker-compose
 alias dcup='docker-compose up'
 alias dcb='docker-compose build'
 alias dcrm='docker-compose rm'
@@ -84,14 +93,17 @@ alias dcps='docker-compose ps'
 alias dcstop='docker-compose stop'
 alias dcrestart='docker-compose restart'
 
+# OpenShift
+alias oc="TERM=xterm-color oc"
+
 # Virtualenv
 alias v='workon'
-# make virtualenv using current dir name if not provided
 alias v.mk='f() { mkvirtualenv -p python3 ${1:-$(basename $(pwd))}}; f'
 alias v.mk2='f() { mkvirtualenv -p python2 ${1:-$(basename $(pwd))}}; f'
-alias v.mk38='f() { mkvirtualenv -p python3.8 ${1:-$(basename $(pwd))}}; f'
 alias v.mk39='f() { mkvirtualenv -p python3.9 ${1:-$(basename $(pwd))}}; f'
 alias v.mk310='f() { mkvirtualenv -p python3.10 ${1:-$(basename $(pwd))}}; f'
+alias v.mk311='f() { mkvirtualenv -p python3.11 ${1:-$(basename $(pwd))}}; f'
+alias v.mk312='f() { mkvirtualenv -p python3.12 ${1:-$(basename $(pwd))}}; f'
 alias v.rm='rmvirtualenv'
 alias v.cd='cdvirtualenv'
 alias v.sp='cdsitepackages'
@@ -99,9 +111,21 @@ alias v.set='setprojectdir'
 alias v.add2virtualenv='add2virtualenv'
 alias v.lssitepackages='lssitepackages'
 
+# Invenio-specific
+alias v.i='cdvirtualenv var/instance'
+
+# Other CLI apps
+alias http='noglob http'
+alias pg='f() { c=${1:-$(basename $(pwd))}; pgcli "postgresql://$c:$c@localhost:5432/$c"; }; f'
+
 # WebM to GIF
 function webm2gif() {
     ffmpeg -y -i $1 -vf palettegen _tmp_palette.png
     ffmpeg -y -i $1 -i _tmp_palette.png -filter_complex paletteuse -r 10  ${1%.webm}.gif
     rm _tmp_palette.png
 }
+
+## FZF
+# Select a line from a file and copy to clipboard
+alias fzf_cc='f() { cat $1 | fzf --multi --tac --no-sort | clipcopy }; f'
+
