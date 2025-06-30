@@ -35,6 +35,11 @@ Thumbs.db
 .pytest_cache
 .ipynb_checkpoints
 pyrightconfig.json
+requirements.in
+
+# uv lockfile
+uv.lock
+*.egg-info
 
 # JS
 node_modules/
@@ -47,7 +52,13 @@ node_modules/
 # environment
 .env
 
+# AI Assistants
+CLAUDE.md
+AGENT.md
+.claude/
+
 # Temporary directories
 tmp/
+var/
 
 .vagrant/
