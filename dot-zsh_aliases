@@ -83,7 +83,7 @@ GIT_LOG_FORMAT="\
 %C(auto,reset)%s \
 [%C(auto,blue)%<(6,trunc)%an%x08%x08%C(auto,reset), \
 %C(auto,cyan)%ar%C(auto,reset)]"
-alias gl='noglob git log -25 --all --graph --pretty=format:$GIT_LOG_FORMAT'
+alias gl='noglob git log -25 --all --graph --date-order --pretty=format:$GIT_LOG_FORMAT'
 alias gdel='f() { git branch -D $1 && git push ${2:-origin} :$1; }; f'
 alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
