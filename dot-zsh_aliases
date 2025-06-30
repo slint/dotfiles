@@ -123,6 +123,10 @@ alias v.i='cd $VIRTUAL_ENV/var/instance'
 alias dsc_up='eval "$(docker-services-cli up --db ${DB:-postgresql} --search ${SEARCH:-opensearch} --mq ${MQ:-rabbitmq} --cache ${CACHE:-redis} --env)"'
 alias dsc_down='docker-services-cli down'
 
+# Tunneling
+alias sdc='sshuttle-daemon connect'
+alias sdd='sshuttle-daemon disconnect'
+
 # Other CLI apps
 alias http='noglob http'
 alias pg='f() { c=${1:-$(basename $(pwd))}; pgcli "postgresql://$c:$c@localhost:5432/$c"; }; f'
