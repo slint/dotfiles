@@ -153,6 +153,9 @@ esac
 export MAGICK_HOME=/opt/homebrew/opt/imagemagick/
 export PATH="/opt/homebrew/opt/imagemagick/bin:$PATH"
 
+# Claude (local installation)
+alias claude="$HOME/.claude/local/claude"
+
 ## Aliases
 source $HOME/.zsh_aliases
 
