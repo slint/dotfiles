@@ -99,13 +99,14 @@ alias dps="docker ps"
 alias dpa="docker ps -a"
 alias di="docker images"
 
-# Docker-compose
-alias dcup='docker-compose up'
-alias dcb='docker-compose build'
-alias dcrm='docker-compose rm'
-alias dcps='docker-compose ps'
-alias dcstop='docker-compose stop'
-alias dcrestart='docker-compose restart'
+# docker compose
+alias dcup='docker compose up'
+alias dcupd='docker compose up -d'
+alias dcb='docker compose build'
+alias dcrm='docker compose rm'
+alias dcps='docker compose ps'
+alias dcstop='docker compose stop'
+alias dcrestart='docker compose restart'
 
 # OpenShift
 alias oc="TERM=xterm-color oc"
