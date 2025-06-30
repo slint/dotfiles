@@ -10,23 +10,21 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-## Plugins
+## Plugins - Immediate Loading
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit snippet OMZP::common-aliases
+zinit snippet OMZP::eza
 
-# Snippets (lazy-loaded to improve startup)
+## Plugins - Lazy Loading
 # oh-my-zsh libraries
 zinit wait'1' lucid for OMZL::clipboard.zsh
 zinit wait'1' lucid for OMZL::git.zsh
 zinit wait'1' lucid for OMZL::async_prompt.zsh
 
-# oh-my-zsh plugins - immediate loading
-zinit snippet OMZP::common-aliases
-zinit snippet OMZP::eza
-
-# oh-my-zsh plugins (lazy-loaded)
+# oh-my-zsh plugins
 zinit wait'2' lucid for OMZP::brew
 zinit wait'2' lucid for OMZP::colored-man-pages
 zinit wait'2' lucid for OMZP::extract
@@ -37,10 +35,11 @@ zinit wait'2' lucid for OMZP::rust
 zinit wait'2' lucid for OMZP::tmux
 zinit wait'2' lucid for OMZP::command-not-found
 
+## Shell Configuration
+# Completions setup
 dir="$HOME/.zsh-complete"
 mkdir -p "$dir"
 FPATH="$dir:$FPATH"
-# Load completions with security check caching
 autoload -U compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
   compinit
@@ -49,7 +48,7 @@ else
 fi
 zinit cdreplay -q
 
-## Keybindings
+# Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -143,19 +142,6 @@ compdef _atuin atuin
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# Generate completions in background to avoid blocking startup
-{
-  rg --generate complete-zsh > "$dir/_rg" 2>/dev/null
-  docker completion zsh > "$dir/_docker" 2>/dev/null
-  _INVENIO_CLI_COMPLETE=source_zsh invenio-cli > "$dir/_invenio-cli" 2>/dev/null
-  uv generate-shell-completion zsh > "$dir/_uv" 2>/dev/null
-  ruff generate-shell-completion zsh > "$dir/_ruff" 2>/dev/null
-  just --completions zsh > "$dir/_just" 2>/dev/null
-  doggo completions zsh > "$dir/_doggo" 2>/dev/null
-  gh completion --shell zsh > "$dir/_gh" 2>/dev/null
-  oc completion zsh > "$dir/_oc" 2>/dev/null
-} &!
-
 # psql and pg_* commands
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
@@ -178,8 +164,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$HOME/Library/Application Support/fnm:$PATH"
   eval "`fnm env`"
 fi
-# fnm completions (background)
-{ fnm completions --shell zsh > "$dir/_fnm" 2>/dev/null } &!
 
 # bun completions
 source "$HOME/.bun/_bun"
@@ -205,6 +189,20 @@ export PATH="/opt/homebrew/opt/imagemagick/bin:$PATH"
 
 # Claude (local installation)
 alias claude="$HOME/.claude/local/claude"
+
+## Background Completion Generation
+{
+  rg --generate complete-zsh > "$dir/_rg" 2>/dev/null
+  docker completion zsh > "$dir/_docker" 2>/dev/null
+  _INVENIO_CLI_COMPLETE=source_zsh invenio-cli > "$dir/_invenio-cli" 2>/dev/null
+  uv generate-shell-completion zsh > "$dir/_uv" 2>/dev/null
+  ruff generate-shell-completion zsh > "$dir/_ruff" 2>/dev/null
+  just --completions zsh > "$dir/_just" 2>/dev/null
+  doggo completions zsh > "$dir/_doggo" 2>/dev/null
+  gh completion --shell zsh > "$dir/_gh" 2>/dev/null
+  oc completion zsh > "$dir/_oc" 2>/dev/null
+  fnm completions --shell zsh > "$dir/_fnm" 2>/dev/null
+} &!
 
 ## Aliases
 source $HOME/.zsh_aliases
