@@ -45,6 +45,11 @@ alias upia='noglob uv pip install .[all]'
 alias upie='noglob uv pip install -e'
 alias upiea='noglob uv pip install -e .[all]'
 alias upf='uv pip list | grep -i '
+uvdep () {
+    _pkg=$1;
+    shift;
+    uv pip tree --package=$_pkg --invert --show-version-specifiers $@
+}
 
 # Git
 alias gs='git status'
