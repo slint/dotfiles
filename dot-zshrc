@@ -159,8 +159,22 @@ alias claude="$HOME/.claude/local/claude"
 ## Aliases
 source $HOME/.zsh_aliases
 
+# Re-apply aliases after lazy plugins load to prevent overrides
+zinit wait'3' lucid atload'source $HOME/.zsh_aliases' for zdharma-continuum/null
+
 # powerlevel10k init (MUST be at the end!)
 source ~/.p10k.zsh
 
+# direnv (lazy-load on first directory change to avoid instant prompt warnings)
+_direnv_lazy_init() {
+  eval "$(direnv hook zsh)"
+  unfunction _direnv_lazy_init
+  # Trigger direnv for current directory
+  direnv reload 2>/dev/null || true
+}
+autoload -U add-zsh-hook
+add-zsh-hook chpwd _direnv_lazy_init
+
 ## Uncomment to profile
 # zprof
+
