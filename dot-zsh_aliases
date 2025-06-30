@@ -17,8 +17,8 @@ alias ungron='gron -u'
 alias md='f() { mkdir -p $1 && cd $1 }; f'
 
 # Editors
-alias c.='code .'
-alias code='code '
+alias c.='code-insiders .'
+alias code='code-insiders '
 alias v.='nvim .'
 alias vim='nvim'
 alias z.='zed .'
