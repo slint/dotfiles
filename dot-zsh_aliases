@@ -37,7 +37,6 @@ alias piea='noglob pip install -e .[all]'
 alias pf='pip list | grep -i '
 
 # uv pip equivalents, could possibly become the default
-alias upf='uv pip list | grep -i '
 alias up='noglob uv pip'
 alias upi='uv pip install'
 alias upu='uv pip uninstall'
