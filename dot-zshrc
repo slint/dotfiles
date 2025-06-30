@@ -16,22 +16,26 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
-# Snippets
-zinit snippet OMZP::brew
-zinit snippet OMZP::colored-man-pages
+# Snippets (lazy-loaded to improve startup)
+# oh-my-zsh libraries
+zinit wait'1' lucid for OMZL::clipboard.zsh
+zinit wait'1' lucid for OMZL::git.zsh
+zinit wait'1' lucid for OMZL::async_prompt.zsh
+
+# oh-my-zsh plugins - immediate loading
 zinit snippet OMZP::common-aliases
-zinit snippet OMZP::docker
-zinit snippet OMZP::docker-compose
-zinit snippet OMZP::extract
-zinit snippet OMZP::gh
-zinit snippet OMZP::git
-zinit snippet OMZP::pip
-zinit snippet OMZP::tmux
-zinit snippet OMZP::command-not-found
 zinit snippet OMZP::eza
 
-# Plugins from oh-my-zsh
-zinit wait'2' lucid for OMZL::clipboard.zsh
+# oh-my-zsh plugins (lazy-loaded)
+zinit wait'2' lucid for OMZP::brew
+zinit wait'2' lucid for OMZP::colored-man-pages
+zinit wait'2' lucid for OMZP::extract
+zinit wait'2' lucid for OMZP::gh
+zinit wait'2' lucid for OMZP::git
+zinit wait'2' lucid for OMZP::pip
+zinit wait'2' lucid for OMZP::rust
+zinit wait'2' lucid for OMZP::tmux
+zinit wait'2' lucid for OMZP::command-not-found
 
 dir="$HOME/.zsh-complete"
 mkdir -p "$dir"
