@@ -119,7 +119,9 @@ alias v.cd='f() { cd ${VIRTUAL_ENV}/${1} }; f'
 alias v.sp='cd $(python -c "import site; print(site.getsitepackages()[0])")'
 
 # Invenio-specific
-alias v.i='cdvirtualenv var/instance'
+alias v.i='cd $VIRTUAL_ENV/var/instance'
+alias dsc_up='eval "$(docker-services-cli up --db ${DB:-postgresql} --search ${SEARCH:-opensearch} --mq ${MQ:-rabbitmq} --cache ${CACHE:-redis} --env)"'
+alias dsc_down='docker-services-cli down'
 
 # Other CLI apps
 alias http='noglob http'
