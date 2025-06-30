@@ -89,7 +89,7 @@ alias gsync='f() { git checkout master && git pull ${1:-upstream} master; }; f'
 alias gdog='\
     mkdir -p ~/tmp && \
     rsync -a --delete `pwd` ~/tmp/ && \
-    cowsay -f `ls /usr/share/cowsay/cows | shuf -n 1` "You have my permission to git now..."'
+    cowsay -f `ls /opt/homebrew/Cellar/cowsay/3.04_1/share/cows | shuf -n 1` "You have my permission to git now..."'
 alias ggmail='git config user.email a.ioannidis.pan@gmail.com'
 alias gcern='git config user.email a.ioannidis@cern.ch'
 
