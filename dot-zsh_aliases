@@ -115,19 +115,8 @@ oct() {
      oc rsh $TERMINAL_POD
 }
 # Virtualenv
-alias v='workon'
-alias v.mk='f() { mkvirtualenv -p python3 ${1:-$(basename $(pwd))}}; f'
-alias v.mk2='f() { mkvirtualenv -p python2 ${1:-$(basename $(pwd))}}; f'
-alias v.mk39='f() { mkvirtualenv -p python3.9 ${1:-$(basename $(pwd))}}; f'
-alias v.mk310='f() { mkvirtualenv -p python3.10 ${1:-$(basename $(pwd))}}; f'
-alias v.mk311='f() { mkvirtualenv -p python3.11 ${1:-$(basename $(pwd))}}; f'
-alias v.mk312='f() { mkvirtualenv -p python3.12 ${1:-$(basename $(pwd))}}; f'
-alias v.rm='rmvirtualenv'
-alias v.cd='cdvirtualenv'
-alias v.sp='cdsitepackages'
-alias v.set='setprojectdir'
-alias v.add2virtualenv='add2virtualenv'
-alias v.lssitepackages='lssitepackages'
+alias v.cd='f() { cd ${VIRTUAL_ENV}/${1} }; f'
+alias v.sp='cd $(python -c "import site; print(site.getsitepackages()[0])")'
 
 # Invenio-specific
 alias v.i='cdvirtualenv var/instance'
