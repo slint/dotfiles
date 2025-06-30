@@ -39,10 +39,14 @@ zinit wait'2' lucid for OMZP::command-not-found
 
 dir="$HOME/.zsh-complete"
 mkdir -p "$dir"
-rg --generate complete-zsh > "$dir/_rg"
-
-# Load completions
-autoload -U compinit && compinit
+FPATH="$dir:$FPATH"
+# Load completions with security check caching
+autoload -U compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zinit cdreplay -q
 
 ## Keybindings
