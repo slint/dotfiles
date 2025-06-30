@@ -64,10 +64,18 @@ alias glu='git pull upstream'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'
 alias gbd='f() { git branch -D $1 }; f'
+
 gbdr () {
     git branch -D "$1" && git push origin :"$1"
 }
+__git_branch_names () {
+    local branches
+    branches=(${(f)"$(git branch --format='%(refname:short)' --sort=-committerdate)"})
+
+    _describe 'branch' branches
+}
 compdef __git_branch_names gbdr
+
 alias gt='f() { git tag -a $1 -m "release: $1" }; f'
 
 GIT_LOG_FORMAT="\
