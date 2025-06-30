@@ -110,7 +110,10 @@ alias dcrestart='docker compose restart'
 
 # OpenShift
 alias oc="TERM=xterm-color oc"
-
+oct() {
+     TERMINAL_POD=$(oc get pods | grep terminal | awk '{print $1}')
+     oc rsh $TERMINAL_POD
+}
 # Virtualenv
 alias v='workon'
 alias v.mk='f() { mkvirtualenv -p python3 ${1:-$(basename $(pwd))}}; f'
